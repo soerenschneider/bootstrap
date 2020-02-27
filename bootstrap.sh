@@ -24,7 +24,7 @@ function restartGpgAgent() {
     else
         log "restarting gpg-agent not necessary..."
     fi
-    
+
     # set env vars to make ssh use gpg agent
     GPG_TTY=$(/usr/bin/tty)
     export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
@@ -60,7 +60,7 @@ runAnsibleBootstrapPlaybook() {
 }
 
 populateSecrets() {
-	echo -n "Populate secrets? "
+    echo -n "Populate secrets? "
     read answer
     case $answer in
         [Yy]* ) sh ${GIT_PROJECTS}/dotfiles/populate-secrets.sh ; break;;
