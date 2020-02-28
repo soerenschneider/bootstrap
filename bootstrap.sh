@@ -68,8 +68,25 @@ populateSecrets() {
     esac
 }
 
+# moves the content of the "old" xdg directories to its new counterparts
+moveOldXdgDirs() {
+    egrep "^[[:alpha:]]{1,}=[[:alpha:]]{1,}" /etc/xdg/user-dirs.defaults | while read line; do
+        key=$(echo "${line}" | awk -F "=" '{print $1}');
+        val=$(echo "${line}" | awk -F "=" '{print $2}');
+        if [ -d ~/${val} ]; then
+            NEW_DIR=$(xdg-user-dir ${key})
+            log "~/${val} exists, moving to ${NEW_DIR}"
+            if [ ! -z "$(ls -A ${val})" ]; then
+                mv ~/${val}/* ${NEW_DIR}/
+            fi
+            rmdir ~/${val}
+        fi
+    done
+}
+
 installRequirements
 restartGpgAgent
 checkoutProjects
 runAnsibleBootstrapPlaybook
 populateSecrets
+moveOldXdgDirs
