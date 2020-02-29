@@ -114,8 +114,8 @@ moveOldXdgDirs() {
 
 installRequirements
 restartGpgAgent
+fetchCardKeys
 checkoutProjects
 runAnsibleBootstrapPlaybook
 populateSecrets
 moveOldXdgDirs
-fetchCardKeys
