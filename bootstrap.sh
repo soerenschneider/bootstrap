@@ -43,6 +43,22 @@ function restartGpgAgent() {
     gpg-connect-agent updatestartuptty /bye > /dev/null
 }
 
+fetchCardKeys() {
+    GENERAL_KEY_INFO=$(gpg2 --card-status | grep -e "^General key info" | awk -F ":" '{print $2}' | tr -d "[:space:]")
+    
+    if [ '[none]' == "${GENERAL_KEY_INFO}" ]; then
+        log "Trying to fetch key"
+        # fetch key
+        KEY_SOURCE=$(gpg2 --card-status | grep ^URL | cut -d":" -f 2-3 | tr -d "[:space:]")
+        if [ ! -z ${KEY_SOURCE} ]; then
+            curl -sSL ${KEY_SOURCE} | gpg2 --import -
+        fi
+    else
+        log "Not fetching key"
+    fi
+
+}
+
 checkoutProjects() {
     if [ ! -d ${GIT_PROJECTS} ]; then
         log "creating dir: ${GIT_PROJECTS}"
@@ -102,3 +118,4 @@ checkoutProjects
 runAnsibleBootstrapPlaybook
 populateSecrets
 moveOldXdgDirs
+fetchCardKeys
