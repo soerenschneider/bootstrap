@@ -56,7 +56,7 @@ runAnsibleBootstrapPlaybook() {
         ln -s ${GIT_PROJECTS}/ansible-roles ~/.ansible/roles
     fi
 
-    ansible-playbook ${GIT_PROJECTS}/ansibles/playbooks/desktop/fedora.yaml
+    ansible-playbook ${GIT_PROJECTS}/ansibles/playbooks/bootstrap/bootstrap.yml
 }
 
 populateSecrets() {
