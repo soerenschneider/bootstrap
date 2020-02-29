@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 GIT_HOST=${1:-git@gitlab.com:soerenschneider}
 GIT_PROJECTS=${2:-~/src/gitlab}
 REPOS=(ansibles ansible-roles)
