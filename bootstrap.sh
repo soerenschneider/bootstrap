@@ -15,6 +15,8 @@ function installRequirements() {
 }
 
 function restartGpgAgent() {
+    gpg2 --list-keys > /dev/null
+
     # restart gpg-agent and start it again with ssh support
     if ! gpgconf --list-options gpg-agent | grep -q enable-ssh-support ; then
         log "restarting gpg-agent"
