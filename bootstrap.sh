@@ -12,8 +12,10 @@ function log() {
 
 function installRequirements() {
     log "installing required packages..."
-    sudo dnf -qy install git ansible gnupg2
+    sudo dnf -qy install git ansible gnupg2 pcsc-lite
     log "done!"
+    log "making sure pcscd is started"
+    sudo systemctl start pcscd
 }
 
 function restartGpgAgent() {
