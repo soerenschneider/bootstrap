@@ -40,6 +40,7 @@ function restartGpgAgent() {
     GPG_TTY=$(/usr/bin/tty)
     export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
     export GPG_TTY SSH_AUTH_SOCK
+    gpg-connect-agent updatestartuptty /bye > /dev/null
 }
 
 checkoutProjects() {
