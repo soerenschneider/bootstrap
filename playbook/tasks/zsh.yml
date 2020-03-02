@@ -1,0 +1,26 @@
+---
+- name: Use zsh instead of bash
+  user:
+    name: "{{ user }}"
+    shell: /usr/bin/zsh
+
+- name: Checkout oh-my-zsh
+  become: false
+  git:
+    repo: "https://github.com/ohmyzsh/ohmyzsh.git"
+    dest: "/home/{{ user }}/.oh-my-zsh"
+  tags:
+    - ohmyzsh
+    - zsh
+
+- name: create completions dir
+  become: false
+  file:
+    path: "/home/{{ user }}/.oh-my-zsh/completions"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "0700"
+    state: directory
+  tags:
+    - ohmyzsh
+    - zsh

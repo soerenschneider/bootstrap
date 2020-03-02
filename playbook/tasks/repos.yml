@@ -1,0 +1,46 @@
+- name: make sure git directory exists
+  become: false
+  file:
+    path: "{{ git_dir }}"
+    state: directory
+    mode: 0750
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  tags:
+    - repos
+
+- name: checkout pass repo
+  become: false
+  git:
+    repo: "{{ git_host }}/abrakadabra"
+    dest: "{{ git_dir }}/abrakadabra"
+  tags:
+    - repos
+
+- name: create pass link to repo
+  become: false
+  file:
+    src: "{{ git_dir }}/abrakadabra"
+    dest: "/home/{{ user }}/.password-store"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    state: link
+  tags:
+    - repos
+
+- name: checkout dotfiles
+  become: false
+  git:
+    repo: "{{ git_host }}/dotfiles"
+    dest: "{{ git_dir }}/dotfiles"
+  tags:
+    - repos
+
+- name: install dotfiles
+  command: sh ./install.sh
+  become: false
+  args:
+    chdir: "{{ git_dir }}/dotfiles"
+  register: output
+  tags:
+    - repos

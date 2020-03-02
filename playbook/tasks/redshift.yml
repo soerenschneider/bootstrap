@@ -1,0 +1,67 @@
+- name: Install deps
+  dnf:
+    name:
+      - intltool
+      - libtool
+      - wayland-devel
+  tags:
+    - sway
+    - redshift
+
+- name: remove redshift installed via dnf
+  dnf:
+    name: redshift
+    state: absent
+  tags:
+    - sway
+    - redshift
+
+- name: checkout 'wayland' redshift-branch
+  become: false
+  git:
+    repo: 'https://github.com/minus7/redshift.git'
+    dest: '{{ sw_dir }}/redshift'
+    version: wayland
+  register: git_clone
+  tags:
+    - sway
+    - redshift
+
+- name: bootstrap
+  command: ./bootstrap
+  become: false
+  args:
+    chdir: "{{ sw_dir }}/redshift"
+  when: git_clone.remote_url_changed is not defined or git_clone.remote_url_changed
+  tags:
+    - sway
+    - redshift
+
+- name: configure
+  command: ./configure
+  become: false
+  args:
+    chdir: "{{ sw_dir }}/redshift"
+  when: git_clone.remote_url_changed is not defined or git_clone.remote_url_changed
+  tags:
+    - sway
+    - redshift
+
+- name: make
+  command: make -j4
+  become: false
+  args:
+    chdir: "{{ sw_dir }}/redshift"
+  when: git_clone.remote_url_changed is not defined or git_clone.remote_url_changed
+  tags:
+    - sway
+    - redshift
+
+- name: make install
+  command: make install
+  args:
+    chdir: "{{ sw_dir }}/redshift"
+  when: git_clone.remote_url_changed is not defined or git_clone.remote_url_changed
+  tags:
+    - sway
+    - redshift

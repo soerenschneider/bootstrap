@@ -1,0 +1,117 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: true
+  vars:
+    user: soeren
+    settings_file: settings.yml
+    sw_dir: "/home/{{ user }}/sw"
+    git_dir: "/home/{{ user }}/src/gitlab/"
+  
+  tasks:
+    - name: Load general settings...
+      include_vars:
+        file: "{{ settings_file }}"
+      tags:
+        - always
+
+    - name: determine hostname (without ansible facts)
+      command: hostname
+      register: hostname_output
+      tags:
+        - always
+
+    - set_fact:
+        hostname: "{{ hostname_output.stdout }}"
+      tags:
+        - always
+    
+    - name: Load host-based settings
+      include_vars:
+        file: "settings-{{ hostname }}.yml"
+      ignore_errors: true
+      tags:
+        - always
+
+    - include_tasks: tasks/services.yml
+      tags:
+        - always
+
+    - name: create dir for scanner firmware
+      file:
+        path: /usr/share/sane/artec_eplus48u
+        state: directory
+        mode: 0755
+        owner: root
+        group: root
+
+    - name: copy scanner firmware
+      copy:
+        src: files/Artec48.usb
+        dest: /usr/share/sane/artec_eplus48u/Artec48.usb
+        owner: root
+        group: root
+        mode: 0644
+    
+    - include_tasks: tasks/dirs.yml
+      tags:
+        - always
+
+    - include_tasks: tasks/zsh.yml
+      tags:
+        - always
+    
+    - include_tasks: tasks/repos.yml
+      tags:
+        - always
+
+    - include_tasks: tasks/docker.yml
+      tags:
+        - always
+
+    - include_tasks: tasks/rpmfusion.yml
+      tags:
+        - always
+
+    - include_tasks: tasks/fedora_packages.yml
+      tags:
+        - always
+
+    - include_tasks: tasks/visualstudio.yml
+      tags:
+        - always
+
+    - include_tasks: tasks/redshift.yml
+      tags:
+        - always
+
+    - include_tasks: tasks/kubernetes.yml
+      tags:
+        - always
+
+    - include_tasks: tasks/bumblebeebar.yml
+      tags:
+        - always
+
+    - include_tasks: tasks/gcloud.yml
+      when: install_gcloud
+      tags:
+        - always
+
+    - include_tasks: tasks/dav.yml
+      tags:
+        - always
+
+    - include_role:
+        name: gocryptfs
+      tags:
+        - always
+
+    - name: Add user to desired groups
+      user:
+        name: "{{ user }}"
+        groups: "{{ item }}"
+        append: yes
+      with_items: "{{ additional_user_groups }}"
+      tags:
+        - group

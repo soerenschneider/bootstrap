@@ -1,0 +1,305 @@
+- name: Enable sway rolling release module
+  command: dnf -y module enable sway:rolling
+  # https://github.com/ansible/ansible/issues/64852
+  #  dnf:
+  #  name: '@sway:rolling'
+  #  state: present
+  tags:
+    - sway
+    - packages
+    - dnf
+    - wm
+
+- name: Sway
+  dnf:
+    name:
+      - sway
+      - swaybg
+      - swayidle
+      - swaylock
+      - wl-clipboard
+      - grim
+      - slurp
+      - mako
+      - light
+      - rofi
+  tags:
+    - sway
+    - packages
+    - dnf
+    - wm
+
+- name: Utilities
+  dnf:
+    name:
+      - git
+      - git-lfs
+      - stow
+      - rclone
+      - ranger
+      - moreutils
+      - shyaml
+      - yamllint
+      - ffsend
+      - awscli
+      - expect
+      - fzf
+      - jq
+      - pwgen
+      - qrencode
+      - unar
+      - tmux
+      - screen
+      - vinagre
+      - fuse-exfat
+      - httpd-tools
+      - fwupd
+  tags:
+    - utils
+    - utilities
+    - packages
+    - dnf
+
+- name: Fonts
+  dnf:
+    name:
+      - google-roboto-fonts
+      - google-roboto-slab-fonts
+      - google-roboto-condensed-fonts
+      - adobe-source-code-pro-fonts
+      - mozilla-fira-fonts-common
+      - mozilla-fira-sans-fonts
+      - mozilla-fira-mono-fonts
+  tags:
+    - fonts
+    - packages
+    - dnf
+
+- name: Network
+  dnf:
+    name:
+      - curl
+      - kubernetes-client
+      - net-tools
+      - tcpdump
+      - wireshark
+      - nmap-ncat
+      - autossh
+      - whois
+      - msmtp
+      - nmap
+      - python3-netaddr
+      - NetworkManager-tui
+  tags:
+    - packages
+    - dnf
+    - network
+
+- name: Printing
+  dnf:
+    name: 
+      - cups
+      - foomatic-db
+  tags:
+    - packages
+    - dnf
+    - printing
+
+- name: Crypto
+  dnf:
+    name:
+      - gocryptfs
+      - gnupg2
+      - pcsc-lite
+      - pcsc-lite-ccid
+      - pcsc-tools
+      - steghide
+      - gnutls-utils
+      - pass
+  tags:
+    - crypto
+    - packages
+    - dnf
+    - tex
+
+- name: RPM
+  dnf:
+    name:
+      - mock
+  tags:
+    - rpm
+
+- name: Virt
+  dnf:
+    name:
+      - vagrant
+      - qemu-kvm
+      - qemu-img
+      - libvirt-client
+  tags:
+    - virtualization
+    - packages
+    - dnf
+    - virt
+
+- name: Devel
+  dnf:
+    name: 
+      - podman
+      - podman-compose
+      - buildah
+      - gcc-c++
+      - gcc
+      - make
+      - automake
+      - android-tools
+      - ShellCheck
+  tags:
+    - packages
+    - dnf
+    - development
+
+- name: Go
+  dnf:
+    name: 
+      - golang
+      - hugo
+  tags:
+    - packages
+    - dnf
+    - go
+    - development
+
+- name: Music
+  dnf:
+    name: 
+      - vorbis-tools
+      - easytag
+      - ncmpcpp
+      - moc
+      - shntool
+  tags:
+    - packages
+    - dnf
+    - music
+    - multimedia
+
+- name: Video players
+  dnf: 
+    name:
+      - mpv
+      - vlc
+      - HandBrake-gui
+  tags:
+    - packages
+    - dnf
+    - video
+    - multimedia
+
+- name: HW acceleration
+  dnf: 
+    name:
+      - libva-vdpau-driver
+      - libva-intel-driver
+      - libva-utils
+      - mesa-vdpau-drivers
+  tags:
+    - hw
+    - acceleration
+    - video
+    - driver
+    - packages
+    - multimedia
+    - dnf
+    - tex
+
+- name: Internet
+  dnf: 
+    name: 
+      - firefox-wayland
+      - chromium
+      - thunderbird
+      - mutt
+      - isync
+      - imapfilter
+      - khal
+      - task
+      - khard
+      - newsboat
+      - weechat
+  tags:
+    - packages
+    - dnf
+    - internet
+
+- name: Image processing
+  dnf:
+    name: 
+      - xsane
+      - gscan2pdf
+      - ImageMagick
+      - rawtherapee
+      - gimp
+      - mediainfo
+      - perl-Image-ExifTool
+  tags:
+    - packages
+    - dnf
+    - images
+    - multimedia
+
+- name: Latex
+  dnf:
+    name: 
+      - texlive
+      - texlive-base 
+      - texlive-collection-science
+      - texlive-hyphen-german
+      - texlive-german
+      - texlive-babel-german
+      - texlive-moderncv
+      - texlive-import
+      - texmaker
+      - texlive-cm-super
+  tags:
+    - packages
+    - dnf
+    - tex
+
+- name: Office
+  dnf:
+    name: 
+      - calibre
+      - odt2txt
+      - libreoffice
+      - hunspell-en-US
+      - hunspell-de
+      - hunspell-fr
+      - hunspell-es-ES
+      - hunspell-pt
+      - sdcv
+      - stardict-dic-en
+  tags:
+    - packages
+    - dnf
+    - office
+
+- name: Windows
+  dnf:
+    name:
+      - WoeUSB
+  tags:
+    - packages
+    - dnf
+    - windows
+
+- name: Games
+  dnf:
+    name:
+      - scorched3d
+      - scummvm
+      - supertuxkart
+  tags:
+    - games
+    - packages
+    - dnf

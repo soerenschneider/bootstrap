@@ -1,0 +1,19 @@
+- name: Create contacts
+  file:
+    path: "/home/{{ user }}/.contacts"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0700
+  tags:
+    - dav
+
+- name: Create calendars
+  file:
+    path: "/home/{{ user }}/.calendars"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0700
+  tags:
+    - dav

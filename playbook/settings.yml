@@ -1,0 +1,29 @@
+---
+user: soeren
+sw_dir: "/home/{{ user }}/sw"
+git_dir: "/home/{{ user }}/src/gitlab"
+git_host: git@gitlab.com:soerenschneider
+additional_user_groups:
+  - libvirt
+
+install_gcloud: false
+
+systemd_disabled_services: 
+  - avahi-daemon
+  - bluetooth
+  - systemd-resolved
+  - ModemManager
+
+systemd_enabled_services: 
+  - fwupd
+  - fstrim.timer
+
+xdg:
+  desktop: desktop
+  downloads: dls
+  documents: docs
+  templates: templates
+  music: media/music
+  pictures: media/photos
+  videos: media/videos
+  publicshare: pub

@@ -1,0 +1,43 @@
+- name: Stop and disable services
+  systemd:
+    name: "{{ item }}"
+    state: stopped
+    enabled: false
+  with_items: "{{ systemd_disabled_services }}"
+  ignore_errors: yes
+  tags:
+    - services
+
+- name: Start and enable services
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  with_items: "{{ systemd_enabled_services }}"
+  ignore_errors: yes
+  tags:
+    - services
+
+- name: Check resolv.conf
+  stat: 
+    path: /etc/resolv.conf
+  register: resolv_conf
+  tags:
+    - services
+
+- name: Delete /etc/resolv
+  file:
+    path: /etc/resolv
+    state: absent
+  when: resolv_conf.stat.islnk
+  tags:
+    - services
+
+- name: Restart NetworkManager
+  become: true
+  systemd:
+    name: NetworkManager
+    state: restarted
+  when: resolv_conf.stat.islnk
+  tags:
+    - services
