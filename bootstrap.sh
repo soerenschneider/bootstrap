@@ -4,7 +4,7 @@ set -e
 
 GIT_HOST=${1:-git@gitlab.com:soerenschneider}
 GIT_PROJECTS=${2:-~/src/gitlab}
-REPOS=(ansibles ansible-roles)
+REPOS=(ansible-roles)
 
 function log() {
     echo "*** $1"
@@ -19,6 +19,7 @@ function installRequirements() {
 }
 
 function restartGpgAgent() {
+    # create gpg dir with correct permissions
     gpg2 --list-keys > /dev/null
 
     # if the gpg-agent is not running, start it
@@ -84,7 +85,9 @@ runAnsibleBootstrapPlaybook() {
         ln -s ${GIT_PROJECTS}/ansible-roles ~/.ansible/roles
     fi
 
-    ansible-playbook ${GIT_PROJECTS}/ansibles/playbooks/bootstrap/bootstrap.yml
+    # get aboslute path of the dir this file resides in
+    HERE=$(dirname $(readlink -f $0))
+    ansible-playbook "${HERE}/playbook/bootstrap.yml"
 }
 
 populateSecrets() {
