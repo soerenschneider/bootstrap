@@ -217,7 +217,7 @@
   dnf: 
     name: 
       - firefox-wayland
-      - chromium
+      - chromium-freeworld
       - thunderbird
       - mutt
       - isync
