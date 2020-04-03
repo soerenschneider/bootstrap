@@ -54,6 +54,7 @@
       - fuse-exfat
       - httpd-tools
       - fwupd
+      - sshfs
   tags:
     - utils
     - utilities
