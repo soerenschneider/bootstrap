@@ -55,6 +55,7 @@
       - httpd-tools
       - fwupd
       - sshfs
+      - oathtool
   tags:
     - utils
     - utilities
