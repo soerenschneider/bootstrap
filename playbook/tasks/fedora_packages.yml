@@ -118,6 +118,7 @@
       - steghide
       - gnutls-utils
       - pass
+      - pass-otp
   tags:
     - crypto
     - packages
