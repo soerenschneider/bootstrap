@@ -1,4 +1,11 @@
 ---
+- name: Install zsh
+  package:
+    name: zsh
+  tags:
+    - zsh
+    - ohmyzsh
+
 - name: Use zsh instead of bash
   user:
     name: "{{ user }}"
