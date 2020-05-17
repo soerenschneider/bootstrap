@@ -275,6 +275,9 @@
       - calibre
       - odt2txt
       - libreoffice
+      - aspell
+      - aspell-en
+      - aspell-de
       - hunspell-en-US
       - hunspell-de
       - hunspell-fr
