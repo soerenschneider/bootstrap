@@ -17,6 +17,8 @@
       - swaybg
       - swayidle
       - swaylock
+      - wofi
+      - waybar
       - wl-clipboard
       - grim
       - slurp
@@ -284,7 +286,6 @@
       - hunspell-es-ES
       - hunspell-pt
       - sdcv
-      - stardict-dic-en
   tags:
     - packages
     - dnf
