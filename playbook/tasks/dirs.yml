@@ -33,14 +33,17 @@
   tags:
     - dirs
 
-- name: create wallpapers dir
+- name: create wallpapers and scrots dir
   become: false
   file:
-    path: "/home/{{ user }}/{{ xdg.pictures }}/wallpapers"
+    path: "{{ item }}"
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "0755"
     state: directory
+  with_items:
+    - "/home/{{ user }}/{{ xdg.pictures }}/wallpapers"
+    - "/home/{{ user }}/{{ xdg.pictures }}/scrots"
   tags:
     - dirs
 
