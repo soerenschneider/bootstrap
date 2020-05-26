@@ -51,6 +51,7 @@
       - qrencode
       - unar
       - tmux
+      - task
       - screen
       - vinagre
       - fuse-exfat
@@ -218,17 +219,25 @@
     - dnf
     - tex
 
+- name: Mail
+  dnf:
+    name:
+      - mutt
+      - isync
+      - imapfilter
+      - notmuch
+  tags:
+    - packages
+    - dnf
+    - internet
+
 - name: Internet
   dnf: 
     name: 
       - firefox-wayland
       - chromium-freeworld
       - thunderbird
-      - mutt
-      - isync
-      - imapfilter
       - khal
-      - task
       - khard
       - newsboat
       - weechat
