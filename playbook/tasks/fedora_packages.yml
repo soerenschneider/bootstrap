@@ -31,6 +31,12 @@
     - dnf
     - wm
 
+- name: Productiviy
+  dnf:
+    name:
+      - task
+      - vym
+
 - name: Utilities
   dnf:
     name:
@@ -51,7 +57,6 @@
       - qrencode
       - unar
       - tmux
-      - task
       - screen
       - vinagre
       - fuse-exfat
@@ -236,7 +241,6 @@
     name: 
       - firefox-wayland
       - chromium-freeworld
-      - thunderbird
       - khal
       - khard
       - newsboat
