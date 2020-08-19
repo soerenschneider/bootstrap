@@ -12,30 +12,25 @@
     - name: Load general settings...
       include_vars:
         file: "{{ settings_file }}"
-      tags:
-        - always
+      tags: always
 
     - name: determine hostname (without ansible facts)
       command: hostname
       register: hostname_output
-      tags:
-        - always
+      tags: always
 
     - set_fact:
         hostname: "{{ hostname_output.stdout }}"
-      tags:
-        - always
+      tags: always
     
     - name: Load host-based settings
       include_vars:
         file: "settings-{{ hostname }}.yml"
       ignore_errors: true
-      tags:
-        - always
+      tags: always
 
     - include_tasks: tasks/services.yml
-      tags:
-        - always
+      tags: always
 
     - name: create dir for scanner firmware
       file:
@@ -54,58 +49,49 @@
         mode: 0644
     
     - include_tasks: tasks/dirs.yml
-      tags:
-        - always
+      tags: always
 
     - include_tasks: tasks/zsh.yml
-      tags:
-        - always
+      tags: always
     
     - include_tasks: tasks/repos.yml
-      tags:
-        - always
+      tags: always
 
     - include_tasks: tasks/docker.yml
-      tags:
-        - always
+      tags: always
 
     - include_tasks: tasks/rpmfusion.yml
-      tags:
-        - always
+      tags: always
 
     - include_tasks: tasks/fedora_packages.yml
-      tags:
-        - always
+      tags: always
 
     - include_tasks: tasks/visualstudio.yml
-      tags:
-        - always
+      tags: always
 
     - include_tasks: tasks/redshift.yml
-      tags:
-        - always
+      tags: always
 
     - include_tasks: tasks/kubernetes.yml
-      tags:
-        - always
+      tags: always
 
     - include_tasks: tasks/bumblebeebar.yml
-      tags:
-        - always
+      tags: always
 
     - include_tasks: tasks/gcloud.yml
       when: install_gcloud
-      tags:
-        - always
+      tags: always
 
     - include_tasks: tasks/dav.yml
-      tags:
-        - always
+      tags: always
 
     - include_role:
         name: gocryptfs
-      tags:
-        - always
+      tags: always
+ 
+    - include_role:
+        name: needrestart
+      tags: always
 
     - name: Add user to desired groups
       user:
@@ -113,5 +99,4 @@
         groups: "{{ item }}"
         append: yes
       with_items: "{{ additional_user_groups }}"
-      tags:
-        - group
+      tags: group
