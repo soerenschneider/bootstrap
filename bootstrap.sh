@@ -57,7 +57,6 @@ fetchCardKeys() {
     else
         log "Not fetching key"
     fi
-
 }
 
 checkoutProjects() {
@@ -91,10 +90,24 @@ runAnsibleBootstrapPlaybook() {
 }
 
 populateSecrets() {
-    echo -n "Populate secrets? "
+    echo -n "Populate PIM secrets? "
     read answer
     case $answer in
-        [Yy]* ) sh ${GIT_PROJECTS}/dotfiles/populate-secrets.sh ; break;;
+        [Yy]* ) sh ${GIT_PROJECTS}/dotfiles/populate-secrets.sh;;
+        * ) return ;;
+    esac
+
+    echo -n "Populate ansible secrets? "
+    read answer
+    case $answer in
+        [Yy]* ) sh ${GIT_PROJECTS}/dotfiles/populate-ansible.sh;;
+        * ) return ;;
+    esac
+
+    echo -n "Populate taskwarrior secrets? "
+    read answer
+    case $answer in
+        [Yy]* ) sh ${GIT_PROJECTS}/dotfiles/populate-taskwarrior.sh;;
         * ) return ;;
     esac
 }
