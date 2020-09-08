@@ -64,6 +64,12 @@
       - fwupd
       - sshfs
       - oathtool
+      - translate-shell
+      - bat
+      - ripgrep
+      - exa
+      - tokei
+      - procs
   tags:
     - utils
     - utilities
