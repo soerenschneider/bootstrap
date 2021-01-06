@@ -53,6 +53,7 @@
       - expect
       - fzf
       - jq
+      - units
       - pwgen
       - qrencode
       - unar
