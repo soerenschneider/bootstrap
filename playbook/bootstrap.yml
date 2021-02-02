@@ -69,13 +69,7 @@
     - include_tasks: tasks/visualstudio.yml
       tags: always
 
-    - include_tasks: tasks/redshift.yml
-      tags: always
-
     - include_tasks: tasks/kubernetes.yml
-      tags: always
-
-    - include_tasks: tasks/bumblebeebar.yml
       tags: always
 
     - include_tasks: tasks/gcloud.yml

@@ -25,6 +25,7 @@
       - mako
       - light
       - rofi
+      - gammastep
   tags:
     - sway
     - packages
