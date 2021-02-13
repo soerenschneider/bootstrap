@@ -17,6 +17,7 @@ systemd_disabled_services:
 systemd_enabled_services: 
   - fwupd
   - fstrim.timer
+  - libvirtd
 
 xdg:
   desktop: desktop
