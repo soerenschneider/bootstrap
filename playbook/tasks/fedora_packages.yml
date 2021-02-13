@@ -49,7 +49,6 @@
       - moreutils
       - shyaml
       - yamllint
-      - ffsend
       - awscli
       - expect
       - fzf
@@ -155,6 +154,7 @@
       - qemu-kvm
       - qemu-img
       - libvirt-client
+      - virt-manager
   tags:
     - virtualization
     - packages
@@ -324,9 +324,7 @@
 - name: Games
   dnf:
     name:
-      - scorched3d
       - scummvm
-      - supertuxkart
   tags:
     - games
     - packages
