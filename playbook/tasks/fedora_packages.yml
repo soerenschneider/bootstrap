@@ -178,6 +178,16 @@
     - dnf
     - development
 
+- name: Libraries
+  dnf:
+    name:
+      - libbsd-devel
+      - libvirt-devel
+  tags:
+    - packages
+    - dnf
+    - libraries
+
 - name: Go
   dnf:
     name: 
