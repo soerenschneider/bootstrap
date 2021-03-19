@@ -29,9 +29,6 @@
       ignore_errors: true
       tags: always
 
-    - include_tasks: tasks/services.yml
-      tags: always
-
     - name: create dir for scanner firmware
       file:
         path: /usr/share/sane/artec_eplus48u
@@ -57,8 +54,6 @@
     - include_tasks: tasks/repos.yml
       tags: always
 
-    - include_tasks: tasks/docker.yml
-      tags: always
 
     - include_tasks: tasks/rpmfusion.yml
       when: ansible_distribution in ['Fedora', 'CentOS', 'Red Hat Enterprise Linux']
@@ -68,9 +63,6 @@
       tags: always
 
     - include_tasks: tasks/visualstudio.yml
-      tags: always
-
-    - include_tasks: tasks/redshift.yml
       tags: always
 
     - include_tasks: tasks/kubernetes.yml
@@ -98,3 +90,6 @@
         append: yes
       with_items: "{{ additional_user_groups }}"
       tags: group
+
+    - include_tasks: tasks/services.yml
+      tags: always

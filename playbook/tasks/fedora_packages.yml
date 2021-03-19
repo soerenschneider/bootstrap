@@ -25,6 +25,7 @@
       - mako
       - light
       - rofi
+      - gammastep
   tags:
     - sway
     - packages
@@ -52,6 +53,7 @@
       - expect
       - fzf
       - jq
+      - units
       - pwgen
       - qrencode
       - unar
@@ -152,6 +154,7 @@
       - qemu-kvm
       - qemu-img
       - libvirt-client
+      - virt-manager
   tags:
     - virtualization
     - packages
@@ -175,6 +178,16 @@
     - packages
     - dnf
     - development
+
+- name: Libraries
+  dnf:
+    name:
+      - libbsd-devel
+      - libvirt-devel
+  tags:
+    - packages
+    - dnf
+    - libraries
 
 - name: Go
   dnf:
@@ -322,9 +335,7 @@
 - name: Games
   dnf:
     name:
-      - scorched3d
       - scummvm
-      - supertuxkart
   tags:
     - games
     - packages
