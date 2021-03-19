@@ -48,7 +48,6 @@
       - moreutils
       - shyaml
       - yamllint
-      - ffsend
       - awscli
       - expect
       - fzf
@@ -162,6 +161,7 @@
 - name: Devel
   dnf:
     name: 
+      - scdoc
       - podman
       - podman-compose
       - buildah
