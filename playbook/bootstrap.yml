@@ -61,6 +61,7 @@
       tags: always
 
     - include_tasks: tasks/rpmfusion.yml
+      when: ansible_distribution in ['Fedora', 'CentOS', 'Red Hat Enterprise Linux']
       tags: always
 
     - include_tasks: tasks/fedora_packages.yml
@@ -73,9 +74,6 @@
       tags: always
 
     - include_tasks: tasks/kubernetes.yml
-      tags: always
-
-    - include_tasks: tasks/bumblebeebar.yml
       tags: always
 
     - include_tasks: tasks/gcloud.yml
