@@ -1,3 +1,4 @@
+---
 - name: Add google cloud repository
   become: yes
   yum_repository:
