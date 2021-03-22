@@ -63,6 +63,7 @@
       - fuse-exfat
       - httpd-tools
       - fwupd
+      - fdupes
       - sshfs
       - oathtool
       - translate-shell
