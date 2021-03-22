@@ -1,3 +1,4 @@
+---
 - name: Checkout kubectx
   become: false
   git:
@@ -5,10 +6,7 @@
     dest: '{{ sw_dir }}/kubectx'
     version: '{{ kubectx_version | default("master") }}'
   register: git_clone
-  tags:
-    - kubernetes
-    - k8
-    - kubectx
+  tags: kubernetes
 
 - name: Set link to kubectx
   become: false
@@ -16,10 +14,7 @@
     src: "{{ sw_dir }}/kubectx/kubectx"
     path: "/home/soeren/bin/kubectx"
     state: link
-  tags:
-    - kubernetes
-    - k8
-    - kubectx
+  tags: kubernetes
 
 - name: Set link to kubectx completion
   become: false
@@ -27,10 +22,7 @@
     src: "{{ sw_dir }}/kubectx/completion/kubectx.zsh"
     path: "/home/soeren/.oh-my-zsh/completions/_kubectx.zsh"
     state: link
-  tags:
-    - kubernetes
-    - k8
-    - kubectx
+  tags: kubernetes
 
 - name: Set link to kubens
   become: false
@@ -38,10 +30,7 @@
     src: "{{ sw_dir }}/kubectx/kubens"
     path: "/home/soeren/bin/kubens"
     state: link
-  tags:
-    - kubernetes
-    - k8
-    - kubectx
+  tags: kubernetes
 
 - name: Set link to kubens completion
   become: false
@@ -49,7 +38,4 @@
     src: "{{ sw_dir }}/kubectx/completion/kubens.zsh"
     path: "/home/soeren/.oh-my-zsh/completions/_kubens.zsh"
     state: link
-  tags:
-    - kubernetes
-    - k8
-    - kubectx
+  tags: kubernetes
