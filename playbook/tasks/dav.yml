@@ -1,3 +1,4 @@
+---
 - name: Create contacts
   file:
     path: "/home/{{ user }}/.contacts"
@@ -5,8 +6,7 @@
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0700
-  tags:
-    - dav
+  tags: dav
 
 - name: Create calendars
   file:
@@ -15,5 +15,4 @@
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0700
-  tags:
-    - dav
+  tags: dav
