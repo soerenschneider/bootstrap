@@ -1,3 +1,4 @@
+---
 - name: Add Visual studio code repository
   become: yes
   yum_repository:
@@ -13,7 +14,7 @@
 
 - name: Install Visual studio code
   become: yes
-  dnf:
+  package:
     name: code
     state: present
   tags:
