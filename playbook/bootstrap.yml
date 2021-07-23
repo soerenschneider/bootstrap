@@ -54,6 +54,8 @@
     - include_tasks: tasks/repos.yml
       tags: always
 
+    - include_tasks: tasks/nb.yml
+      tags: always
 
     - include_tasks: tasks/rpmfusion.yml
       when: ansible_distribution in ['Fedora', 'CentOS', 'Red Hat Enterprise Linux']

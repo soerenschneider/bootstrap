@@ -1,3 +1,11 @@
+- name: Download gpg key
+  become: yes
+  get_url:
+    url: "https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_date_time.year }}"
+    dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_date_time.year }}"
+  tags:
+    - rpmfusion
+
 - name: Add rpmfusion
   become: yes
   yum_repository:
@@ -5,11 +13,8 @@
     description: RPM Fusion for Fedora $releasever - Free
     file: rpmfusion-free
     metalink: https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
-    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_distribution_version }}"
+    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_date_time.year }}"
     gpgcheck: yes
-    metadata_expire: 14d
-  when: 
-    - ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
   tags:
     - rpmfusion
 
@@ -20,19 +25,7 @@
     description: RPM Fusion for Fedora $releasever - Free - Updates
     file: rpmfusion-free-updates
     metalink: https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-$releasever&arch=$basearch
-    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_distribution_version }}"
+    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_date_time.year }}"
     gpgcheck: yes
-  when: 
-    - ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
-  tags:
-    - rpmfusion
-
-- name: Download gpg key
-  become: yes
-  get_url:
-    url: "https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_distribution_version }}"
-    dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_distribution_version }}"
-  when: 
-    - ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
   tags:
     - rpmfusion

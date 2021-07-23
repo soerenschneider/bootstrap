@@ -43,6 +43,8 @@
     name:
       - git
       - git-lfs
+      - tig
+      - pandoc
       - stow
       - rclone
       - ranger
@@ -128,6 +130,7 @@
     name:
       - gocryptfs
       - gnupg2
+      - pinentry-gtk
       - pcsc-lite
       - pcsc-lite-ccid
       - pcsc-tools

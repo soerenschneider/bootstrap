@@ -1,7 +1,0 @@
----
-- name: Checkout bumblebee
-  git:
-    repo: 'https://github.com/tobi-wan-kenobi/bumblebee-status.git'
-    dest: "{{ sw_dir }}/bumblebee-status"
-  tags:
-    - bumblebee
