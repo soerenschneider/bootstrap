@@ -310,6 +310,7 @@
 - name: Office
   dnf:
     name: 
+      - homebank
       - calibre
       - odt2txt
       - libreoffice
