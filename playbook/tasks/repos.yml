@@ -34,7 +34,6 @@
   git:
     repo: "{{ git_host }}/abrakadabra"
     dest: "{{ git_dir }}/abrakadabra"
-  when: abrakadabra_repo is not defined or abrakadabra_repo.stdout == ""
   tags:
     - repos
 
@@ -73,7 +72,6 @@
     repo: "{{ git_host }}/dotfiles"
     dest: "{{ git_dir }}/dotfiles"
   become: false
-  when: dotfiles_repo is not defined or dotfiles_repo.stdout == ""
   tags:
     - repos
 
