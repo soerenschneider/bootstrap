@@ -45,6 +45,7 @@
       - git-lfs
       - tig
       - pandoc
+      - asciinema
       - stow
       - rclone
       - ranger
@@ -172,6 +173,7 @@
       - podman
       - podman-compose
       - buildah
+      - pre-commit
       - gcc-c++
       - gcc
       - make
