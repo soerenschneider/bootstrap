@@ -1,8 +1,8 @@
 - name: Download gpg key
   become: yes
   get_url:
-    url: "https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_date_time.year }}"
-    dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_date_time.year }}"
+    url: "https://rpmfusion.org/keys?action=AttachFile&do=get&target={{ rpmfusion_signature_file }}"
+    dest: "/etc/pki/rpm-gpg/{{ rpmfusion_signature_file }}"
   tags:
     - rpmfusion
 
@@ -13,7 +13,7 @@
     description: RPM Fusion for Fedora $releasever - Free
     file: rpmfusion-free
     metalink: https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
-    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_date_time.year }}"
+    gpgkey: "file:///etc/pki/rpm-gpg/{{ rpmfusion_signature_file }}"
     gpgcheck: yes
   tags:
     - rpmfusion
@@ -25,7 +25,7 @@
     description: RPM Fusion for Fedora $releasever - Free - Updates
     file: rpmfusion-free-updates
     metalink: https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-$releasever&arch=$basearch
-    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_date_time.year }}"
+    gpgkey: "file:///etc/pki/rpm-gpg/{{ rpmfusion_signature_file }}"
     gpgcheck: yes
   tags:
     - rpmfusion

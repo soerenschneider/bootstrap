@@ -6,11 +6,11 @@ GIT_HOST=${1:-git@gitlab.com:soerenschneider}
 GIT_PROJECTS=${2:-~/src/gitlab}
 REPOS=(ansible-roles)
 
-function log() {
+log() {
     echo "*** $1"
 }
 
-function installRequirements() {
+installRequirements() {
     log "installing required packages..."
     sudo dnf -qy install git ansible gnupg2 pcsc-lite stow pcsc-cyberjack
     log "done!"
@@ -18,7 +18,7 @@ function installRequirements() {
     sudo systemctl start pcscd
 }
 
-function restartGpgAgent() {
+restartGpgAgent() {
     # create gpg dir with correct permissions
     gpg2 --list-keys > /dev/null
 
@@ -47,7 +47,7 @@ function restartGpgAgent() {
 fetchCardKeys() {
     GENERAL_KEY_INFO=$(gpg2 --card-status | grep -e "^General key info" | awk -F ":" '{print $2}' | tr -d "[:space:]")
     
-    if [ '[none]' == "${GENERAL_KEY_INFO}" ]; then
+    if [ '[none]' = "${GENERAL_KEY_INFO}" ]; then
         log "Trying to fetch key"
         # fetch key
         KEY_SOURCE=$(gpg2 --card-status | grep ^URL | cut -d":" -f 2-3 | tr -d "[:space:]")
@@ -119,8 +119,8 @@ moveOldXdgDirs() {
         val=$(echo "${line}" | awk -F "=" '{print $2}');
         if [ -d ~/${val} ]; then
             NEW_DIR=$(xdg-user-dir ${key})
-            log "~/${val} exists, moving to ${NEW_DIR}"
-            if [ ! -z "$(ls -A ${val})" ]; then
+            log "${HOME}/${val} exists, moving to ${NEW_DIR}"
+            if [ -n "$(ls -A ${val})" ]; then
                 mv ~/${val}/* ${NEW_DIR}/
             fi
             rmdir ~/${val}
