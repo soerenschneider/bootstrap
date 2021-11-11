@@ -48,6 +48,7 @@
       - asciinema
       - stow
       - rclone
+      - signify
       - ranger
       - moreutils
       - shyaml
