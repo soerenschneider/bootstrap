@@ -19,7 +19,7 @@
 - name: Set link to kubectx completion
   become: false
   file:
-    src: "{{ sw_dir }}/kubectx/completion/kubectx.zsh"
+    src: "{{ sw_dir }}/kubectx/completion/_kubectx.zsh"
     path: "/home/soeren/.oh-my-zsh/completions/_kubectx.zsh"
     state: link
   tags: kubernetes
@@ -35,7 +35,7 @@
 - name: Set link to kubens completion
   become: false
   file:
-    src: "{{ sw_dir }}/kubectx/completion/kubens.zsh"
+    src: "{{ sw_dir }}/kubectx/completion/_kubens.zsh"
     path: "/home/soeren/.oh-my-zsh/completions/_kubens.zsh"
     state: link
   tags: kubernetes
