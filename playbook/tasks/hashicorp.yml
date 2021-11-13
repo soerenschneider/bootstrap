@@ -1,0 +1,37 @@
+---
+- ansible.builtin.set_fact:
+    hashicorp_gpg_key: "/etc/pki/rpm-gpg/RPM-GPG-KEY-hashicorp"
+  tags:
+    - hashicorp
+    - terraform
+
+- name: Copy gpg key
+  ansible.builtin.copy:
+    src: rpm-gpg-key-hashicorp.txt
+    dest: "{{ hashicorp_gpg_key }}"
+    owner: root
+    group: root
+    mode: "0644"
+  tags:
+    - hashicorp
+    - terraform
+
+- name: Add repo
+  ansible.builtin.yum_repository:
+    name: hashicorp
+    description: Hashicorp Stable - $basearch
+    baseurl: https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
+    enabled: "{{ repos_hashicorp_enabled | default(true) }}"
+    gpgcheck: true
+    gpgkey: "file://{{ hashicorp_gpg_key }}"
+  tags:
+    - hashicorp
+    - terraform
+
+- name: Add terraform
+  ansible.builtin.package:
+    name:
+      - terraform
+  tags:
+    - hashicorp
+    - terraform
