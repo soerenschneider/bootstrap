@@ -43,23 +43,22 @@
   tags:
     - services
 
-- name: Copy systemd service
-  ansible.builtin.copy:
-    src: powertop.service
-    dest: /etc/systemd/system/powertop.service
-    owner: root
-    group: root
-    mode: "0644"
-  tags:
-    - powertop
-    - services
-    
-- name: Enable service
-  ansible.builtin.systemd:
-    daemon_reload: true
-    name: powertop
-    enabled: true
-    state: started
+- block:
+  - name: Copy powertop systemd service
+    ansible.builtin.copy:
+      src: powertop.service
+      dest: /etc/systemd/system/powertop.service
+      owner: root
+      group: root
+      mode: "0644"
+      
+  - name: Enable powertop service
+    ansible.builtin.systemd:
+      daemon_reload: true
+      name: powertop
+      enabled: true
+      state: started
+  when: auto_run_powertop | default(false)
   tags:
     - powertop
     - services
