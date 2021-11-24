@@ -48,6 +48,8 @@
       - asciinema
       - stow
       - rclone
+      - restic
+      - borgbackup
       - signify
       - ranger
       - moreutils
