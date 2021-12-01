@@ -43,6 +43,7 @@
     name:
       - git
       - git-lfs
+      - git-secrets
       - tig
       - pandoc
       - asciinema
