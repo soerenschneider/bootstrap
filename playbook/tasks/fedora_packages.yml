@@ -115,6 +115,7 @@
       - nmap
       - python3-netaddr
       - NetworkManager-tui
+      - mosquitto
   tags:
     - packages
     - dnf
