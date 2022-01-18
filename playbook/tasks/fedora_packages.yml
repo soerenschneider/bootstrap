@@ -185,6 +185,7 @@
       - automake
       - android-tools
       - ShellCheck
+      - python3-iso8601
   tags:
     - packages
     - dnf
