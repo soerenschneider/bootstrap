@@ -150,13 +150,6 @@
     - dnf
     - tex
 
-- name: RPM
-  dnf:
-    name:
-      - mock
-  tags:
-    - rpm
-
 - name: Virt
   dnf:
     name:

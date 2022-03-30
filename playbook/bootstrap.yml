@@ -65,6 +65,9 @@
     - include_tasks: tasks/fedora_packages.yml
       tags: always
     
+    - include_tasks: tasks/auto_updates.yml
+      tags: always
+    
     - include_tasks: tasks/hashicorp.yml
       tags: always
 
