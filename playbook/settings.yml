@@ -1,8 +1,29 @@
 ---
 user: soeren
 sw_dir: "/home/{{ user }}/sw"
-git_dir: "/home/{{ user }}/src/gitlab"
-git_host: git@gitlab.com:soerenschneider
+
+gitlab_dir: "/home/{{ user }}/src/gitlab"
+github_dir: "/home/{{ user }}/src/github"
+gitlab_host: git@gitlab.com:soerenschneider
+github_host: git@github.com:soerenschneider
+abrakadabra_repo: "{{ gitlab_host }}/abrakadabra"
+dotfiles_repo: "{{ gitlab_host }}/dotfiles"
+scripts_repo: "{{ github_host }}/scripts"
+wallpapers_repo: "{{ github_host }}/wallpapers"
+repos:
+  - repo: "{{ dotfiles_repo }}"
+    dest: "{{ github_dir }}/dotfiles"
+    fail_on_dirty: false
+  - repo: "{{ scripts_repo }}"
+    dest: "{{ github_dir }}/scripts"
+    fail_on_dirty: false
+  - repo: "{{ abrakadabra_repo }}"
+    dest: "{{ gitlab_dir }}/abrakadabra"
+    fail_on_dirty: true
+  - repo: "{{ wallpapers_repo }}"
+    dest: "/home/{{ user }}/{{ xdg.pictures }}/wallpapers"
+    fail_on_dirty: false
+
 additional_user_groups:
   - libvirt
 

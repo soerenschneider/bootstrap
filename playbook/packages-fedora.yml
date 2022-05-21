@@ -1,0 +1,228 @@
+install_packages:
+  ######################################
+  # SWAY
+  ######################################
+  - sway
+  - swaybg
+  - swayidle
+  - swaylock
+  - wofi
+  - waybar
+  - wl-clipboard
+  - grim
+  - slurp
+  - mako
+  - light
+  - rofi
+  - gammastep
+
+  ######################################
+  # PRODUCTIVITY
+  ######################################
+  - task
+  - vym
+
+  ######################################
+  # TOOLS
+  ######################################
+  - alacritty
+  - git
+  - git-lfs
+  - git-secret
+  - tig
+  - pandoc
+  - asciinema
+  - stow
+  - rclone
+  - restic
+  - borgbackup
+  - signify
+  - ranger
+  - moreutils
+  - shyaml
+  - yamllint
+  - awscli
+  - expect
+  - fzf
+  - jq
+  - units
+  - pwgen
+  - qrencode
+  - unar
+  - tmux
+  - screen
+  - vinagre
+  - fuse-exfat
+  - httpd-tools
+  - fwupd
+  - fdupes
+  - sshfs
+  - oathtool
+  - translate-shell
+  - bat
+  - ripgrep
+  - exa
+  - tokei
+  - procs
+
+  ######################################
+  # FONTS
+  ######################################
+  - google-roboto-fonts
+  - google-roboto-slab-fonts
+  - google-roboto-condensed-fonts
+  - adobe-source-code-pro-fonts
+  - mozilla-fira-fonts-common
+  - mozilla-fira-sans-fonts
+  - mozilla-fira-mono-fonts
+
+  ######################################
+  # NETWORKING
+  ######################################
+  - curl
+  - kubernetes-client
+  - net-tools
+  - tcpdump
+  - wireshark
+  - nmap-ncat
+  - autossh
+  - whois
+  - msmtp
+  - nmap
+  - python3-netaddr
+  - NetworkManager-tui
+  - mosquitto
+
+  ######################################
+  # PRINTING
+  ######################################
+  - cups
+  - foomatic-db
+
+  ######################################
+  # CRYPTO
+  ######################################
+  - gnupg2
+  - pinentry-gtk
+  - pcsc-lite
+  - pcsc-lite-ccid
+  - pcsc-tools
+  - steghide
+  - gnutls-utils
+  - pass
+  - pass-otp
+
+  ######################################
+  # VIRTU
+  ######################################
+  - vagrant
+  - qemu-kvm
+  - qemu-img
+  - libvirt-client
+  - virt-manager
+
+  ######################################
+  # DEVEL
+  ######################################
+  - golang
+  - hugo
+  - scdoc
+  - podman
+  - podman-compose
+  - buildah
+  - pre-commit
+  - gcc-c++
+  - gcc
+  - make
+  - automake
+  - android-tools
+  - ShellCheck
+  - python3-iso8601
+
+  - libbsd-devel
+  - libvirt-devel
+
+  ######################################
+  # MEDIA
+  ######################################
+  - vorbis-tools
+  - easytag
+  - ncmpcpp
+  - moc
+  - shntool
+  - mpv
+  - vlc
+  - HandBrake-gui
+
+  ######################################
+  # HW ACCEL
+  ######################################
+  - libva-vdpau-driver
+  - libva-intel-driver
+  - libva-utils
+  - mesa-vdpau-drivers
+
+  ######################################
+  # MAIL
+  ######################################
+  - isync
+  - imapfilter
+  - notmuch
+  - aerc
+
+  ######################################
+  # INTERNET
+  ######################################
+  - firefox-wayland
+  - chromium-freeworld
+  - khal
+  - khard
+  - newsboat
+  - weechat
+
+  ######################################
+  # IMAGES
+  ######################################
+  - xsane
+  - gscan2pdf
+  - ImageMagick
+  - rawtherapee
+  - gimp
+  - mediainfo
+  - perl-Image-ExifTool
+
+  ######################################
+  # TEX
+  ######################################
+  - texlive
+  - texlive-base 
+  - texlive-collection-science
+  - texlive-hyphen-german
+  - texlive-german
+  - texlive-babel-german
+  - texlive-moderncv
+  - texlive-import
+  - texmaker
+  - texlive-cm-super
+
+  ######################################
+  # OFFICE
+  ######################################
+  - homebank
+  - calibre
+  - odt2txt
+  - libreoffice
+  - aspell
+  - aspell-en
+  - aspell-de
+  - hunspell-en-US
+  - hunspell-de
+  - hunspell-fr
+  - hunspell-es-ES
+  - hunspell-pt
+  - sdcv
+
+  ######################################
+  # WINDOWS
+  ######################################
+  - WoeUSB

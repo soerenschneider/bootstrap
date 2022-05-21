@@ -1,0 +1,28 @@
+---
+- name: "Check if repo {{ item.dest }} is already checked out"
+  stat:
+    path: "{{ item.dest }}"
+  register: _local_repo
+  become: false
+  changed_when: false
+  tags: repos
+
+- name: "Check if repo {{ item.dest }} has local changes"
+  command: git status --porcelain
+  when: _local_repo.stat.exists
+  register: _repo_status
+  changed_when: _repo_status.stdout | length > 0
+  become: false
+  args:
+    chdir: "{{ item.dest }}"
+  tags: repos
+
+- name: "Checkout repo {{ item.repo }}"
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+  become: false
+  failed_when:
+    - item.fail_on_dirty | default(true)
+    - _repo_status.stdout | length > 0
+  tags: repos

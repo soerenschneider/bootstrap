@@ -32,6 +32,7 @@
   ansible.builtin.package:
     name:
       - terraform
+      - vault
   tags:
     - hashicorp
     - terraform

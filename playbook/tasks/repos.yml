@@ -1,85 +1,35 @@
 ---
-- name: Make sure git directory exists
+- name: Make sure git directories exists
   become: false
   file:
-    path: "{{ git_dir }}"
+    path: "{{ item }}"
     state: directory
     mode: 0750
     owner: "{{ user }}"
     group: "{{ user }}"
-  tags:
-    - repos
+  with_items:
+    - "{{ gitlab_dir }}"
+    - "{{ github_dir }}"
+  tags: repos
 
-- name: Check if pass repo is already checked out
-  stat:
-    path: "{{ git_dir }}/abrakadabra"
-  register: abrakadabra
-  changed_when: false
-  tags:
-    - repos
-
-- name: Check if pass repo has local changes
-  command: git status --porcelain
-  become: false
-  when: abrakadabra.stat.exists
-  register: abrakadabra_repo
-  changed_when: false
-  args:
-    chdir: "{{ git_dir }}/abrakadabra"
-  tags:
-    - repos
-
-- name: Checkout abrakadabra repo
-  become: false
-  git:
-    repo: "{{ git_host }}/abrakadabra"
-    dest: "{{ git_dir }}/abrakadabra"
-  tags:
-    - repos
-
-- name: Create pass link to repo
-  become: false
-  file:
-    src: "{{ git_dir }}/abrakadabra"
-    dest: "/home/{{ user }}/.password-store"
-    owner: "{{ user }}"
-    group: "{{ user }}"
-    state: link
-  tags:
-    - repos
-
-- name: Check if dotfiles are already checked out
-  stat:
-    path: "{{ git_dir }}/dotfiles"
-  register: dotfiles
-  changed_when: false
-  tags:
-    - repos
-
-- name: Check if dotfiles have local changes
-  command: git status --porcelain
-  become: false
-  when: dotfiles.stat.exists
-  changed_when: false
-  register: dotfiles_repo
-  args:
-    chdir: "{{ git_dir }}/dotfiles"
-  tags:
-    - repos
-
-- name: Checkout dotfiles
-  git:
-    repo: "{{ git_host }}/dotfiles"
-    dest: "{{ git_dir }}/dotfiles"
-  become: false
-  tags:
-    - repos
+- include_tasks: repos_checkout.yml
+  with_items: "{{ repos }}"
+  tags: repos
 
 - name: Install dotfiles
   command: sh ./install.sh
   become: false
   args:
-    chdir: "{{ git_dir }}/dotfiles"
+    chdir: "{{ gitlab_dir }}/dotfiles"
   register: output
-  tags:
-    - repos
+  tags: repos
+
+- name: Create pass link to repo
+  become: false
+  file:
+    src: "{{ gitlab_dir }}/abrakadabra"
+    dest: "/home/{{ user }}/.password-store"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    state: link
+  tags: repos

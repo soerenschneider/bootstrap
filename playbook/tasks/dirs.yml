@@ -47,29 +47,28 @@
   tags:
     - dirs
 
-- name: check for default fedora wallpaper
+- name: Check for default fedora wallpaper
   stat:
     path: /usr/share/backgrounds/default.png
   register: default_wallpaper
   tags:
     - dirs
 
-- name: check if wallpapers exist
+- name: Check if local wallpapers exist
   find:
     paths: "/home/{{ user }}/{{ xdg.pictures }}/wallpapers"
   register: wallpapers_found
   tags:
     - dirs
 
-- name: copy default wallpaper if there are no others
+- name: Copy default wallpaper if there are no others
   become: false
   copy:
     src: /usr/share/backgrounds/default.png
     dest: "/home/{{ user }}/{{ xdg.pictures }}/wallpapers/default.png"
     remote_src: yes
   when: default_wallpaper.stat.exists and wallpapers_found.matched == 0
-  tags:
-    - dirs
+  tags: dirs
 
 - name: Create sw dir
   become: false
@@ -79,5 +78,4 @@
     group: "{{ user }}"
     mode: "0700"
     state: directory
-  tags:
-    - dirs
+  tags: dirs

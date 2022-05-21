@@ -7,7 +7,8 @@
     settings_file: settings.yml
     rpmfusion_signature_file: RPM-GPG-KEY-rpmfusion-free-fedora-2020
     sw_dir: "/home/{{ user }}/sw"
-    git_dir: "/home/{{ user }}/src/gitlab/"
+    gitlab_dir: "/home/{{ user }}/src/gitlab/"
+    github_dir: "/home/{{ user }}/src/github/"
   
   tasks:
     - name: Load general settings...
@@ -46,13 +47,13 @@
         group: root
         mode: 0644
     
+    - include_tasks: tasks/repos.yml
+      tags: always
+    
     - include_tasks: tasks/dirs.yml
       tags: always
 
     - include_tasks: tasks/zsh.yml
-      tags: always
-    
-    - include_tasks: tasks/repos.yml
       tags: always
 
     - include_tasks: tasks/nb.yml
@@ -63,6 +64,7 @@
       tags: always
 
     - include_tasks: tasks/fedora_packages.yml
+      when: ansible_distribution in ['Fedora', 'CentOS', 'Red Hat Enterprise Linux']
       tags: always
     
     - include_tasks: tasks/auto_updates.yml
