@@ -102,6 +102,7 @@ install_packages:
   ######################################
   # CRYPTO
   ######################################
+  - age
   - gnupg2
   - pinentry-gtk
   - pcsc-lite
@@ -111,6 +112,7 @@ install_packages:
   - gnutls-utils
   - pass
   - pass-otp
+  - nss-tools
 
   ######################################
   # VIRTU
