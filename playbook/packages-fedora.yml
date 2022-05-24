@@ -155,6 +155,7 @@ install_packages:
   - mpv
   - vlc
   - HandBrake-gui
+  - flac
 
   ######################################
   # HW ACCEL
@@ -163,6 +164,14 @@ install_packages:
   - libva-intel-driver
   - libva-utils
   - mesa-vdpau-drivers
+
+  ######################################
+  # HW YUBIKEY
+  ######################################
+  - yubikey-manager
+  - yubikey-manager-qt
+  - yubikey-personalization-gui
+  - ykman
 
   ######################################
   # MAIL
