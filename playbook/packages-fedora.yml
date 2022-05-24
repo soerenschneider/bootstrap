@@ -124,22 +124,30 @@ install_packages:
   - virt-manager
 
   ######################################
-  # DEVEL
+  # DEVEL GO
   ######################################
   - golang
-  - hugo
-  - scdoc
+  
+  ######################################
+  # DEVEL python
+  ######################################
+  - python3-pip
+  - python3-iso8601
+
+  ######################################
+  # DEVEL general
+  ######################################
+  - pre-commit
   - podman
   - podman-compose
   - buildah
-  - pre-commit
+  - scdoc
   - gcc-c++
   - gcc
   - make
   - automake
-  - android-tools
   - ShellCheck
-  - python3-iso8601
+  - android-tools
 
   - libbsd-devel
   - libvirt-devel
@@ -190,6 +198,7 @@ install_packages:
   - khard
   - newsboat
   - weechat
+  - hugo
 
   ######################################
   # IMAGES
