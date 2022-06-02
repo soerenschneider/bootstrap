@@ -1,0 +1,7 @@
+---
+circadian_config:
+  latitude: 41.14961
+  longitude: -8.61099 
+  sunset_offset: -60
+  sunrise_offset: 60
+  pidfile: /run/user/1000/circadian-daemon.pid

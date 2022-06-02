@@ -2,6 +2,13 @@
 user: soeren
 sw_dir: "/home/{{ user }}/sw"
 
+circadian_config:
+  latitude: 51.2277
+  longitude: 6.7735
+  sunset_offset: -60
+  sunrise_offset: 60
+  pidfile: /run/user/1000/circadian-daemon.pid
+
 gitlab_dir: "/home/{{ user }}/src/gitlab"
 github_dir: "/home/{{ user }}/src/github"
 gitlab_host: git@gitlab.com:soerenschneider

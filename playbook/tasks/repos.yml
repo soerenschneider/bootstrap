@@ -24,6 +24,24 @@
   register: output
   tags: repos
 
+- name: Install scripts
+  command: make install
+  become: false
+  args:
+    chdir: "{{ github_dir }}/scripts"
+  tags: repos
+
+- name: Copy circadian-daemon config
+  ansible.builtin.copy:
+    content: |
+      {{ circadian_config | to_nice_json }}
+    dest: "/home/{{ user }}/.config/circadian-daemon.json"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "0644"
+  become: false
+  tags: repos
+
 - name: Create pass link to repo
   become: false
   file:
