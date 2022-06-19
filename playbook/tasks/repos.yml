@@ -12,6 +12,14 @@
     - "{{ github_dir }}"
   tags: repos
 
+- name: Set correct git config
+  ansible.builtin.copy:
+    content: |
+      [user]
+      email = 2378192-soerenschneider@users.noreply.gitlab.com
+    dest: "{{ gitlab_dir }}/.gitconfig"
+  tags: repos
+
 - include_tasks: repos_checkout.yml
   with_items: "{{ repos }}"
   tags: repos
