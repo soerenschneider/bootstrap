@@ -222,6 +222,8 @@ install_packages:
   - texlive-babel-german
   - texlive-moderncv
   - texlive-import
+  - texlive-lastpage
+  - texlive-threeparttable
   - texmaker
   - texlive-cm-super
 
