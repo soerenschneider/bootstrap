@@ -64,6 +64,7 @@ install_packages:
   - exa
   - tokei
   - procs
+  - zbar
 
   ######################################
   # FONTS
@@ -179,7 +180,6 @@ install_packages:
   - yubikey-manager
   - yubikey-manager-qt
   - yubikey-personalization-gui
-  - ykman
 
   ######################################
   # MAIL

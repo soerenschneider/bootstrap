@@ -11,7 +11,6 @@
   command: git status --porcelain
   when: _local_repo.stat.exists
   register: _repo_status
-  changed_when: _repo_status.stdout | length > 0
   become: false
   args:
     chdir: "{{ item.dest }}"

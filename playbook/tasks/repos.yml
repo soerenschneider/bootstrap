@@ -28,7 +28,7 @@
   command: sh ./install.sh
   become: false
   args:
-    chdir: "{{ gitlab_dir }}/dotfiles"
+    chdir: "{{ github_dir }}/dotfiles"
   register: output
   tags: repos
 
