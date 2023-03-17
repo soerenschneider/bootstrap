@@ -67,6 +67,9 @@
       when: ansible_distribution in ['Fedora', 'CentOS', 'Red Hat Enterprise Linux']
       tags: always
     
+    - include_tasks: tasks/pkcs11-firefox.yaml
+      tags: always
+
     - include_tasks: tasks/auto_updates.yml
       tags: always
     

@@ -1,0 +1,8 @@
+- name: Disable pkcs11 proxy in firefox
+  ansible.builtin.lineinfile:
+    path: "/usr/share/p11-kit/modules/opensc.module"
+    insertafter: "^module: opensc-pkcs11.so$"
+    line: "disable-in: firefox"
+  tags:
+    - pkcs11
+    - crypto
