@@ -64,6 +64,7 @@ install_packages:
   - exa
   - tokei
   - procs
+  - z
   - zbar
 
   ######################################
@@ -193,7 +194,7 @@ install_packages:
   # INTERNET
   ######################################
   - firefox-wayland
-  - chromium-freeworld
+  - chromium
   - khal
   - khard
   - newsboat

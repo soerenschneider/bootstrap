@@ -23,5 +23,5 @@
   become: false
   failed_when:
     - item.fail_on_dirty | default(true)
-    - _repo_status.stdout | length > 0
+    - _repo_status.stdout | default("") | length > 0
   tags: repos

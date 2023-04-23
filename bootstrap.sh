@@ -12,7 +12,7 @@ log() {
 
 installRequirements() {
     log "installing required packages..."
-    sudo dnf -qy install git ansible gnupg2 pcsc-lite stow pcsc-cyberjack
+    sudo dnf -qy install git ansible gnupg2 pcsc-lite stow pcsc-cyberjack make
     log "done!"
     log "making sure pcscd is started"
     sudo systemctl start pcscd
