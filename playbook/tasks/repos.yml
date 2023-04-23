@@ -1,4 +1,13 @@
 ---
+- name: Import ssh public keys
+  ansible.builtin.known_hosts:
+    key: "{{ item.key }}"
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+    path: "/etc/ssh/ssh_known_hosts"
+  with_items: "{{ ssh_known_hosts | selectattr('name', 'in', ['github.com', 'gitlab.com']) | list }}"
+  tags: repos
+
 - name: Make sure git directories exists
   become: false
   file:
