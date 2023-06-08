@@ -13,7 +13,7 @@ install_packages:
   - slurp
   - mako
   - light
-  - rofi
+  - rofi-wayland
   - gammastep
   - wdisplays
 
