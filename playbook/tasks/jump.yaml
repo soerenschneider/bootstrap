@@ -1,0 +1,5 @@
+---
+- name: Install jump
+  become: false
+  ansible.builtin.command: "go install github.com/gsamokovarov/jump@latest"
+  tags: [cli, jump, j, binaries]
