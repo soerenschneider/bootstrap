@@ -1,3 +1,5 @@
+uninstall_packages:
+  - sddm
 install_packages:
   ######################################
   # SWAY
