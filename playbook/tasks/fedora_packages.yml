@@ -20,3 +20,9 @@
   ansible.builtin.dnf:
     name: "{{ install_packages }}"
   tags: packages
+
+- name: Uninstall packages
+  ansible.builtin.dnf:
+    name: "{{ uninstall_packages }}"
+    state: absent
+  tags: packages
