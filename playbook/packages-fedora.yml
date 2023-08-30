@@ -212,6 +212,7 @@ install_packages:
   - gscan2pdf
   - ImageMagick
   - rawtherapee
+  - eom
   - gimp
   - mediainfo
   - perl-Image-ExifTool
