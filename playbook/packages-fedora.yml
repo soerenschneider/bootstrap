@@ -28,7 +28,8 @@ install_packages:
   ######################################
   # TOOLS
   ######################################
-  - alacritty
+  - zeal
+  - kitty
   - git
   - git-lfs
   - git-secret
