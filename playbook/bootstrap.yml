@@ -79,6 +79,9 @@
     - include_tasks: tasks/kubernetes.yml
       tags: always
 
+    - include_tasks: tasks/go_tools.yaml
+      tags: always
+
     - include_tasks: tasks/dav.yml
       tags: always
 

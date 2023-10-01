@@ -1,0 +1,25 @@
+---
+- name: Install cosign
+  become: false
+  ansible.builtin.command: "go install github.com/sigstore/cosign/v2/cmd/cosign@{{ cosign_version }}"
+  tags: [cosign, go, packages]
+
+- name: Install fx
+  become: false
+  ansible.builtin.command: "go install github.com/antonmedv/fx@{{ fx_version }}"
+  tags: [fx, go, packages]
+
+- name: Install yq
+  become: false
+  ansible.builtin.command: "go install github.com/mikefarah/yq/v4@{{ yq_version }}"
+  tags: [yq, go, packages]
+
+- name: Install golangci-lint
+  become: false
+  ansible.builtin.command: "go install github.com/golangci/golangci-lint/cmd/golangci-lint@{{ golangci_lint_version }}"
+  tags: [golangci_lint, go, packages]
+
+- name: Install jump
+  become: false
+  ansible.builtin.command: "go install github.com/gsamokovarov/jump@{{ jump_version }}"
+  tags: [jump, go, packages]
