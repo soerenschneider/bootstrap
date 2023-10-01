@@ -82,9 +82,6 @@
     - include_tasks: tasks/dav.yml
       tags: always
 
-    - include_tasks: tasks/jump.yaml
-      tags: always
-
     - include_role:
         name: gocryptfs
       tags: always
