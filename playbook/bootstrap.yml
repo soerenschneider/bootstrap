@@ -76,9 +76,6 @@
     - include_tasks: tasks/hashicorp.yml
       tags: always
 
-    - include_tasks: tasks/kubernetes.yml
-      tags: always
-
     - include_tasks: tasks/go_tools.yaml
       tags: always
 

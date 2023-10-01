@@ -23,3 +23,13 @@
   become: false
   ansible.builtin.command: "go install github.com/gsamokovarov/jump@{{ jump_version }}"
   tags: [jump, go, packages]
+
+- name: Install kubectx
+  become: false
+  ansible.builtin.command: "go install github.com/ahmetb/kubectx/cmd/kubectx@{{ kubectx_version }}"
+  tags: [kubectx, go, packages]
+
+- name: Install kubens
+  become: false
+  ansible.builtin.command: "go install github.com/ahmetb/kubectx/cmd/kubens@{{ kubectx_version }}"
+  tags: [kubectx, kubens, go, packages]
