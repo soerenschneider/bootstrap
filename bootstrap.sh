@@ -86,7 +86,7 @@ runAnsibleBootstrapPlaybook() {
 
     # get aboslute path of the dir this file resides in
     HERE=$(dirname $(readlink -f $0))
-    ansible-playbook "${HERE}/playbook/bootstrap.yml"
+    ansible-playbook "${HERE}/playbook/playbook.yml"
 }
 
 populateSecrets() {
