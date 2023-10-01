@@ -1,0 +1,38 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":rebaseStalePrs"
+  ],
+  "ansible": {
+    "fileMatch": [
+      "(^|/)tasks/[^/]+\\.ya?ml$",
+      "(^|/)playbook.ya?ml$"
+    ]
+  },
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "updateTypes": [
+        "minor",
+        "patch"
+      ]
+    }
+  ],
+  "regexManagers": [
+     {
+         "fileMatch": ["playbook.ya?ml$"],
+         "matchStrings": [".+_image: \"(?<depName>.*?):(?<currentValue>.*?)\""],
+         "datasourceTemplate": "docker"
+    },
+
+    {
+        "fileMatch": [".*y[a]?ml$"],
+        "matchStrings": [
+            "# renovate: datasource=(?<datasource>docker)( versioning=(?<versioning>.*?))?\\s.+_image: \"(?<depName>.*?):(?<currentValue>.*)\"",
+            "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?_version: \"(?<currentValue>.*)\""
+        ]
+    }
+  ]
+}
+
