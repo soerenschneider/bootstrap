@@ -6,7 +6,7 @@ fx_version: "31.0.0"
 # renovate: datasource=github-releases depName=mikefarah/yq
 yq_version: "v4.40.2"
 # renovate: datasource=github-releases depName=golangci/golangci-lint
-golangci_lint_version: "v1.55.2"
+golangci_lint_version: "v1.56.2"
 # renovate: datasource=github-releases depName=gsamokovarov/jump
 jump_version: "v0.51.0"
 # renovate: datasource=github-releases depName=ahmetb/kubectx
