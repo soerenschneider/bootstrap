@@ -1,15 +1,3 @@
-- name: Enable sway rolling release module
-  command: dnf -y module enable sway:rolling
-  # https://github.com/ansible/ansible/issues/64852
-  #  dnf:
-  #  name: '@sway:rolling'
-  #  state: present
-  tags:
-    - sway
-    - packages
-    - dnf
-    - wm
-
 - name: Load package list
   include_vars:
     file: "packages-fedora.yml"

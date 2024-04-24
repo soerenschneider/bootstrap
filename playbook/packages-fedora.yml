@@ -110,7 +110,6 @@ install_packages:
   ######################################
   - age
   - gnupg2
-  - pinentry-gtk
   - pcsc-lite
   - pcsc-lite-ccid
   - pcsc-tools
@@ -197,7 +196,7 @@ install_packages:
   ######################################
   # INTERNET
   ######################################
-  - firefox-wayland
+  - firefox
   - chromium
   - khal
   - khard
