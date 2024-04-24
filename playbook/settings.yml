@@ -11,6 +11,8 @@ golangci_lint_version: "v1.56.2"
 jump_version: "v0.51.0"
 # renovate: datasource=github-releases depName=ahmetb/kubectx
 kubectx_version: "v0.9.5"
+# renovate: datasource=github-releases depName=getsops/sops
+sops_version: "v3.8.1"
 
 user: soeren
 sw_dir: "/home/{{ user }}/sw"

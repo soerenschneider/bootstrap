@@ -33,3 +33,8 @@
   become: false
   ansible.builtin.command: "go install github.com/ahmetb/kubectx/cmd/kubens@{{ kubectx_version }}"
   tags: [kubectx, kubens, go, packages]
+
+- name: Install sops
+  become: false
+  ansible.builtin.command: "go install github.com/getsops/sops/v3/cmd/sops@{{ sops_version }}"
+  tags: [kubectx, kubens, go, packages]
