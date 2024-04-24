@@ -2,9 +2,9 @@
 
 set -e
 
-GIT_HOST=${1:-git@gitlab.com:soerenschneider}
-GIT_PROJECTS=${2:-~/src/gitlab}
-REPOS=(ansible-roles)
+GIT_HOST=${1:-git@github.com:soerenschneider}
+GIT_PROJECTS=${2:-~/src/github}
+REPOS=(playbooks)
 
 log() {
     echo "*** $1"
@@ -81,7 +81,7 @@ runAnsibleBootstrapPlaybook() {
     ansible --help > /dev/null
 
     if [ ! -L ~/.ansible/roles ]; then
-        ln -s ${GIT_PROJECTS}/ansible-roles ~/.ansible/roles
+        ln -s ${GIT_PROJECTS}/playbooks/roles ~/.ansible/roles
     fi
 
     # get aboslute path of the dir this file resides in

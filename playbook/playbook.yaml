@@ -73,9 +73,6 @@
     - include_tasks: tasks/auto_updates.yml
       tags: always
     
-    - include_tasks: tasks/hashicorp.yml
-      tags: always
-
     - include_tasks: tasks/go_tools.yaml
       tags: always
 

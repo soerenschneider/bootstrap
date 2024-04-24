@@ -14,7 +14,7 @@ kubectx_version: "v0.9.5"
 # renovate: datasource=github-releases depName=getsops/sops
 sops_version: "v3.8.1"
 
-user: soeren
+user: "soeren"
 sw_dir: "/home/{{ user }}/sw"
 
 ssh_known_hosts:
@@ -36,8 +36,8 @@ circadian_config:
 
 gitlab_dir: "/home/{{ user }}/src/gitlab"
 github_dir: "/home/{{ user }}/src/github"
-gitlab_host: git@gitlab.com:soerenschneider
-github_host: git@github.com:soerenschneider
+gitlab_host: "git@gitlab.com:soerenschneider"
+github_host: "git@github.com:soerenschneider"
 abrakadabra_repo: "{{ gitlab_host }}/abrakadabra"
 dotfiles_repo: "{{ github_host }}/dotfiles"
 scripts_repo: "{{ github_host }}/scripts"
