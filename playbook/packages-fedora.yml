@@ -138,6 +138,7 @@ install_packages:
   ######################################
   - python3-pip
   - python3-iso8601
+  - python3-backoff
 
   ######################################
   # DEVEL general
