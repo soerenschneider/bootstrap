@@ -37,4 +37,18 @@
 - name: Install sops
   become: false
   ansible.builtin.command: "go install github.com/getsops/sops/v3/cmd/sops@{{ sops_version }}"
-  tags: [kubectx, kubens, go, packages]
+  tags: [sops, go, packages]
+
+- name: Install terragrunt
+  become: false
+  block:
+    - name: Clone repo
+      ansible.builtin.git:
+        repo: "https://github.com/gruntwork-io/terragrunt"
+        dest: "{{ sw_dir }}/terragrunt"
+        version: "{{ terragrunt_version }}"
+    - name: Clone repo
+      ansible.builtin.command:
+        cmd: "make build"
+        chdir: "{{ sw_dir }}/terragrunt"
+  tags: [terragrunt, go, packages]
