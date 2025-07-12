@@ -1,18 +1,18 @@
 ---
 # renovate: datasource=github-releases depName=sigstore/cosign
-cosign_version: "v2.2.3"
+cosign_version: "v2.5.2"
 # renovate: datasource=github-releases depName=antonmedv/fx
-fx_version: "31.0.0"
+fx_version: "37.0.0"
 # renovate: datasource=github-releases depName=mikefarah/yq
-yq_version: "v4.41.1"
+yq_version: "v4.46.1"
 # renovate: datasource=github-releases depName=golangci/golangci-lint
-golangci_lint_version: "v1.56.2"
+golangci_lint_version: "v2.2.1"
 # renovate: datasource=github-releases depName=gsamokovarov/jump
 jump_version: "v0.51.0"
 # renovate: datasource=github-releases depName=ahmetb/kubectx
 kubectx_version: "v0.9.5"
 # renovate: datasource=github-releases depName=getsops/sops
-sops_version: "v3.8.1"
+sops_version: "v3.10.2"
 # renovate: datasource=github-releases depName=gruntwork-io/terragrunt
 terragrunt_version: "v0.83.1"
 
