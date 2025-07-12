@@ -48,7 +48,7 @@ repos:
     dest: "{{ github_dir }}/scripts"
     fail_on_dirty: false
   - repo: "{{ abrakadabra_repo }}"
-    dest: "{{ gitlab_dir }}/abrakadabra"
+    dest: "{{ github_dir }}/abrakadabra"
     fail_on_dirty: true
   - repo: "{{ wallpapers_repo }}"
     dest: "/home/{{ user }}/{{ xdg.pictures }}/wallpapers"
