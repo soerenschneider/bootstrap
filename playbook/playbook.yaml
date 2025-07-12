@@ -29,22 +29,6 @@
         file: "settings-{{ hostname }}.yml"
       ignore_errors: true
       tags: always
-
-    - name: create dir for scanner firmware
-      file:
-        path: /usr/share/sane/artec_eplus48u
-        state: directory
-        mode: 0755
-        owner: root
-        group: root
-
-    - name: copy scanner firmware
-      copy:
-        src: files/Artec48.usb
-        dest: /usr/share/sane/artec_eplus48u/Artec48.usb
-        owner: root
-        group: root
-        mode: 0644
     
     - include_tasks: tasks/repos.yml
       tags: always
