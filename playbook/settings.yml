@@ -74,7 +74,7 @@ xdg:
   downloads: dls
   documents: docs
   templates: templates
-  music: media/music
-  pictures: media/photos
-  videos: media/videos
+  music: music
+  pictures: pictures
+  videos: videos
   publicshare: pub
