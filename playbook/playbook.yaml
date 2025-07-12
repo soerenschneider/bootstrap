@@ -5,7 +5,6 @@
   vars:
     user: soeren
     settings_file: settings.yml
-    rpmfusion_signature_file: RPM-GPG-KEY-rpmfusion-free-fedora-2020
     sw_dir: "/home/{{ user }}/sw"
     gitlab_dir: "/home/{{ user }}/src/gitlab/"
     github_dir: "/home/{{ user }}/src/github/"
