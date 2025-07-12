@@ -1,5 +1,6 @@
+---
 - name: Download gpg key
-  become: yes
+  become: true
   get_url:
     url: "https://rpmfusion.org/keys?action=AttachFile&do=get&target={{ rpmfusion_signature_file }}"
     dest: "/etc/pki/rpm-gpg/{{ rpmfusion_signature_file }}"
@@ -7,25 +8,25 @@
     - rpmfusion
 
 - name: Add rpmfusion
-  become: yes
+  become: true
   yum_repository:
     name: rpmfusion-free
     description: RPM Fusion for Fedora $releasever - Free
     file: rpmfusion-free
     metalink: https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
     gpgkey: "file:///etc/pki/rpm-gpg/{{ rpmfusion_signature_file }}"
-    gpgcheck: yes
+    gpgcheck: true
   tags:
     - rpmfusion
 
 - name: Add rpmfusion updates
-  become: yes
+  become: true
   yum_repository:
     name: rpmfusion-free-updates
     description: RPM Fusion for Fedora $releasever - Free - Updates
     file: rpmfusion-free-updates
     metalink: https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-$releasever&arch=$basearch
     gpgkey: "file:///etc/pki/rpm-gpg/{{ rpmfusion_signature_file }}"
-    gpgcheck: yes
+    gpgcheck: true
   tags:
     - rpmfusion
