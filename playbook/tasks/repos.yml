@@ -51,7 +51,7 @@
 - name: Create pass link to repo
   become: false
   file:
-    src: "{{ gitlab_dir }}/abrakadabra"
+    src: "{{ github_dir }}/abrakadabra"
     dest: "/home/{{ user }}/.password-store"
     owner: "{{ user }}"
     group: "{{ user }}"
