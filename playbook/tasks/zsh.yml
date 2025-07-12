@@ -10,6 +10,9 @@
   user:
     name: "{{ user }}"
     shell: /usr/bin/zsh
+  tags:
+    - zsh
+    - ohmyzsh
 
 - name: Checkout oh-my-zsh
   become: false
