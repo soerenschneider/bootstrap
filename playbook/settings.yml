@@ -59,7 +59,6 @@ install_gcloud: false
 
 systemd_disabled_services: 
   - avahi-daemon
-  - bluetooth
   - systemd-resolved
   - ModemManager
 
