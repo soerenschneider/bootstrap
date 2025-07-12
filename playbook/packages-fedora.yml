@@ -1,24 +1,6 @@
-uninstall_packages:
-  - sddm
-install_packages:
-  ######################################
-  # SWAY
-  ######################################
-  - sway
-  - swaybg
-  - swayidle
-  - swaylock
-  - wofi
-  - waybar
-  - wl-clipboard
-  - grim
-  - slurp
-  - mako
-  - light
-  - rofi-wayland
-  - gammastep
-  - wdisplays
+uninstall_packages: []
 
+install_packages:
   ######################################
   # PRODUCTIVITY
   ######################################
@@ -29,7 +11,7 @@ install_packages:
   # TOOLS
   ######################################
   - zeal
-  - kitty
+  - yakuake
   - git
   - git-lfs
   - git-secret
@@ -39,7 +21,6 @@ install_packages:
   - stow
   - rclone
   - restic
-  - borgbackup
   - signify
   - ranger
   - moreutils
@@ -65,7 +46,6 @@ install_packages:
   - translate-shell
   - bat
   - ripgrep
-  - exa
   - tokei
   - procs
   - z
@@ -122,7 +102,6 @@ install_packages:
   ######################################
   # VIRTU
   ######################################
-  - vagrant
   - qemu-kvm
   - qemu-img
   - libvirt-client
@@ -201,7 +180,6 @@ install_packages:
   - chromium
   - khal
   - khard
-  - newsboat
   - weechat
   - hugo
 
@@ -249,8 +227,3 @@ install_packages:
   - hunspell-es-ES
   - hunspell-pt
   - sdcv
-
-  ######################################
-  # WINDOWS
-  ######################################
-  - WoeUSB
