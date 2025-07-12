@@ -15,6 +15,8 @@ kubectx_version: "v0.9.5"
 sops_version: "v3.10.2"
 # renovate: datasource=github-releases depName=gruntwork-io/terragrunt
 terragrunt_version: "v0.83.1"
+# renovate: datasource=github-releases depName=soerenschneider/sc
+sc_version: "v1.6.0"
 
 user: "soeren"
 sw_dir: "/home/{{ user }}/sw"

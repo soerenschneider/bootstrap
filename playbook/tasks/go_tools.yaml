@@ -16,7 +16,7 @@
 
 - name: Install golangci-lint
   become: false
-  ansible.builtin.command: "go install github.com/golangci/golangci-lint/cmd/golangci-lint@{{ golangci_lint_version }}"
+  ansible.builtin.command: "go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@{{ golangci_lint_version }}"
   tags: [golangci_lint, go, packages]
 
 - name: Install jump
@@ -38,6 +38,11 @@
   become: false
   ansible.builtin.command: "go install github.com/getsops/sops/v3/cmd/sops@{{ sops_version }}"
   tags: [sops, go, packages]
+
+- name: Install sc
+  become: false
+  ansible.builtin.command: "go install github.com/soerenschneider/sc@{{ sc_version }}"
+  tags: [sc, go, packages]
 
 - name: Install terragrunt
   become: false
