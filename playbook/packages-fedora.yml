@@ -66,7 +66,6 @@ install_packages:
   # NETWORKING
   ######################################
   - curl
-  - kubernetes-client
   - net-tools
   - tcpdump
   - wireshark
@@ -78,6 +77,12 @@ install_packages:
   - python3-netaddr
   - NetworkManager-tui
   - mosquitto
+
+  ######################################
+  # INFRA
+  ######################################
+  - kubernetes-client
+  - opentofu
 
   ######################################
   # PRINTING
@@ -190,6 +195,7 @@ install_packages:
   - gscan2pdf
   - ImageMagick
   - rawtherapee
+  - simple-scan
   - eom
   - gimp
   - mediainfo
