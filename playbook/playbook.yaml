@@ -46,7 +46,7 @@
       when: ansible_distribution in ['Fedora', 'CentOS', 'Red Hat Enterprise Linux']
       tags: always
 
-    - include_tasks: tasks/fedora_packages.yml
+    - include_tasks: tasks/flatpak.yaml
       when: ansible_distribution in ['Fedora', 'CentOS', 'Red Hat Enterprise Linux']
       tags: always
     
