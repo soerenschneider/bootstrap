@@ -52,8 +52,15 @@
         repo: "https://github.com/gruntwork-io/terragrunt"
         dest: "{{ sw_dir }}/terragrunt"
         version: "{{ terragrunt_version }}"
-    - name: Clone repo
+
+    - name: Build terragrunt
       ansible.builtin.command:
         cmd: "make build"
         chdir: "{{ sw_dir }}/terragrunt"
+
+    - name: Copy file
+      ansible.builtin.copy:
+        src: "{{ sw_dir }}/terragrunt/terragrunt"
+        dest: "/home/{{ user }}/bin/terragrunt"
+        mode: "0755"
   tags: [terragrunt, go, packages]
