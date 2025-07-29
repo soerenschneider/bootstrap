@@ -24,6 +24,11 @@
   ansible.builtin.command: "go install github.com/gsamokovarov/jump@{{ jump_version }}"
   tags: [jump, go, packages]
 
+- name: Install kubelogin
+  become: false
+  ansible.builtin.command: "go install github.com/int128/kubelogin@{{ kubelogin_version }}"
+  tags: [kubelogin, go, packages]
+
 - name: Install kubectx
   become: false
   ansible.builtin.command: "go install github.com/ahmetb/kubectx/cmd/kubectx@{{ kubectx_version }}"

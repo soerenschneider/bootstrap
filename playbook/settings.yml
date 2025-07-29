@@ -9,6 +9,8 @@ yq_version: "v4.46.1"
 golangci_lint_version: "v2.2.1"
 # renovate: datasource=github-releases depName=gsamokovarov/jump
 jump_version: "v0.51.0"
+# renovate: datasource=github-releases depName=int128/kubelogin
+kubectx_version: "v1.34.0"
 # renovate: datasource=github-releases depName=ahmetb/kubectx
 kubectx_version: "v0.9.5"
 # renovate: datasource=github-releases depName=getsops/sops
@@ -17,6 +19,8 @@ sops_version: "v3.10.2"
 terragrunt_version: "v0.83.1"
 # renovate: datasource=github-releases depName=soerenschneider/sc
 sc_version: "v1.6.0"
+# renovate: datasource=github-releases depName=nats-io/natscli
+nats_version: "v0.0.33"
 
 user: "soeren"
 sw_dir: "/home/{{ user }}/sw"
