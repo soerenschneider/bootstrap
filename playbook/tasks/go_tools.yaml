@@ -44,6 +44,11 @@
   ansible.builtin.command: "go install github.com/soerenschneider/sc@{{ sc_version }}"
   tags: [sc, go, packages]
 
+- name: Install nats
+  become: false
+  ansible.builtin.command: "go install github.com/nats-io/natscli/nats@{{ nats_version }}"
+  tags: [nats, go, packages]
+
 - name: Install terragrunt
   become: false
   block:
