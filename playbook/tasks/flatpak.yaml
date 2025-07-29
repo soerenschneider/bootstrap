@@ -1,0 +1,13 @@
+---
+- name: Add the flathub flatpak repository remote
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  tags: [packages, flatpak]
+
+- name: Install flatpak packages
+  community.general.flatpak:
+    name:
+      - com.vscodium.codium
+  tags: [packages, flatpak]
