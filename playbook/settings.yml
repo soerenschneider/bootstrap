@@ -20,7 +20,7 @@ terragrunt_version: "v0.83.1"
 # renovate: datasource=github-releases depName=soerenschneider/sc
 sc_version: "v1.6.0"
 # renovate: datasource=github-releases depName=nats-io/natscli
-nats_version: "v0.0.33"
+nats_version: "v0.2.4"
 
 user: "soeren"
 sw_dir: "/home/{{ user }}/sw"
