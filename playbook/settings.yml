@@ -2,7 +2,7 @@
 # renovate: datasource=github-releases depName=sigstore/cosign
 cosign_version: "v2.5.2"
 # renovate: datasource=github-releases depName=antonmedv/fx
-fx_version: "37.0.0"
+fx_version: "39.1.0"
 # renovate: datasource=github-releases depName=mikefarah/yq
 yq_version: "v4.46.1"
 # renovate: datasource=github-releases depName=golangci/golangci-lint
