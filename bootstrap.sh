@@ -89,49 +89,8 @@ runAnsibleBootstrapPlaybook() {
     ansible-playbook "${HERE}/playbook/playbook.yaml"
 }
 
-populateSecrets() {
-    echo -n "Populate PIM secrets? "
-    read answer
-    case $answer in
-        [Yy]* ) sh ${GIT_PROJECTS}/dotfiles/populate-secrets.sh;;
-        * ) return ;;
-    esac
-
-    echo -n "Populate ansible secrets? "
-    read answer
-    case $answer in
-        [Yy]* ) sh ${GIT_PROJECTS}/dotfiles/populate-ansible.sh;;
-        * ) return ;;
-    esac
-
-    echo -n "Populate taskwarrior secrets? "
-    read answer
-    case $answer in
-        [Yy]* ) sh ${GIT_PROJECTS}/dotfiles/populate-taskwarrior.sh;;
-        * ) return ;;
-    esac
-}
-
-# moves the content of the "old" xdg directories to its new counterparts
-moveOldXdgDirs() {
-    egrep "^[[:alpha:]]{1,}=[[:alpha:]]{1,}" /etc/xdg/user-dirs.defaults | while read line; do
-        key=$(echo "${line}" | awk -F "=" '{print $1}');
-        val=$(echo "${line}" | awk -F "=" '{print $2}');
-        if [ -d ~/${val} ]; then
-            NEW_DIR=$(xdg-user-dir ${key})
-            log "${HOME}/${val} exists, moving to ${NEW_DIR}"
-            if [ -n "$(ls -A ${val})" ]; then
-                mv ~/${val}/* ${NEW_DIR}/
-            fi
-            rmdir ~/${val}
-        fi
-    done
-}
-
 installRequirements
 restartGpgAgent
 fetchCardKeys
 checkoutProjects
 runAnsibleBootstrapPlaybook
-populateSecrets
-moveOldXdgDirs
