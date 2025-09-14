@@ -1,0 +1,169 @@
+---
+- name: Get current Go releases information
+  uri:
+    url: "{{ go_releases_url }}"
+    method: GET
+    return_content: yes
+  register: go_releases_response
+  tags: go
+  
+- name: Parse Go releases JSON
+  set_fact:
+    go_releases: "{{ go_releases_response.content | from_json }}"
+  tags: go
+    
+- name: Find the specified Go version
+  set_fact:
+    target_version: "{{ item }}"
+  loop: "{{ go_releases }}"
+  when: 
+    - item.version is defined
+    - item.version == "go{{ go_version }}"
+  tags: go
+  
+- name: Fail if version not found
+  fail:
+    msg: "Go version {{ go_version }} not found in releases"
+  when: target_version is not defined
+  tags: go
+  
+- name: Detect system architecture
+  set_fact:
+    system_arch: "{{ 'amd64' if ansible_architecture == 'x86_64' else 
+                      'arm64' if ansible_architecture == 'aarch64' else
+                      '386' if ansible_architecture == 'i386' else
+                      ansible_architecture }}"
+  tags: go
+                      
+- name: Detect operating system
+  set_fact:
+    system_os: "{{ 'linux' if ansible_system == 'Linux' else
+                  'darwin' if ansible_system == 'Darwin' else
+                  'windows' if ansible_system == 'Win32NT' else
+                  ansible_system | lower }}"
+  tags: go
+                  
+- name: Find matching file for current platform
+  set_fact:
+    go_file: "{{ item }}"
+  loop: "{{ target_version.files }}"
+  when:
+    - item.os == system_os
+    - item.arch == system_arch
+    - item.kind == "archive"
+  tags: go
+    
+- name: Fail if no matching file found
+  fail:
+    msg: "No Go archive found for {{ system_os }}/{{ system_arch }}"
+  when: go_file is not defined
+  tags: go
+  
+- name: Display installation information
+  debug:
+    msg:
+      - "Installing Go version: {{ target_version.version }}"
+      - "Platform: {{ system_os }}/{{ system_arch }}"
+      - "File: {{ go_file.filename }}"
+      - "Size: {{ go_file.size | human_readable }}"
+      - "SHA256: {{ go_file.sha256 }}"
+  tags: go
+      
+- name: Check if Go is already installed with correct version
+  command: "{{ go_binary_dir }}/go version"
+  register: current_go_version
+  failed_when: false
+  changed_when: false
+  tags: go
+  
+- name: Parse current Go version
+  set_fact:
+    current_version: "{{ current_go_version.stdout.split()[2] if current_go_version.rc == 0 else 'none' }}"
+  tags: go
+
+- name: Parse current Go version
+  set_fact:
+    needs_installation: "{{ current_go_version.rc != 0 or current_version == 'go{{ go_version }}' }}"
+  tags: go
+    
+- name: Skip installation if correct version already installed
+  debug:
+    msg: "Go {{ go_version }} is already installed"
+  when: 
+    - current_go_version.rc == 0
+    - current_version == "go{{ go_version }}"
+  tags: go
+    
+- name: Remove existing Go installation
+  file:
+    path: "{{ go_install_dir }}/go"
+    state: absent
+  when: 
+    - current_go_version.rc == 0
+    - current_version != "go{{ go_version }}"
+  tags: go
+    
+- name: Create temporary directory
+  tempfile:
+    state: directory
+    suffix: _go_install
+  register: temp_dir
+  when: 
+    - current_go_version.rc != 0 or current_version != "go{{ go_version }}"
+  tags: go
+    
+- name: Download and install
+  when: needs_installation
+  tags: go
+  block:
+    - name: Download Go archive
+      get_url:
+        url: "https://go.dev/dl/{{ go_file.filename }}"
+        dest: "{{ temp_dir.path }}/{{ go_file.filename }}"
+        checksum: "sha256:{{ go_file.sha256 }}"
+        mode: '0644'
+      
+    - name: Extract Go archive
+      unarchive:
+        src: "{{ temp_dir.path }}/{{ go_file.filename }}"
+        dest: "{{ go_install_dir }}"
+        remote_src: yes
+        creates: "{{ go_install_dir }}/go/bin/go"
+      
+    - name: Set Go binary permissions
+      file:
+        path: "{{ go_install_dir }}/go/bin/{{ item }}"
+        mode: '0755'
+      loop:
+        - go
+        - gofmt
+      
+    - name: Clean up temporary directory
+      file:
+        path: "{{ temp_dir.path }}"
+        state: absent
+      
+    - name: Add Go to PATH in profile
+      lineinfile:
+        path: /etc/profile.d/go.sh
+        line: 'export PATH=$PATH:{{ go_binary_dir }}'
+        create: yes
+        mode: '0644'
+      
+    - name: Add GOPATH to profile
+      lineinfile:
+        path: /etc/profile.d/go.sh
+        line: 'export GOPATH=$HOME/go'
+        create: yes
+        mode: '0644'
+  
+- name: Verify Go installation
+  command: "{{ go_binary_dir }}/go version"
+  register: installed_version
+  changed_when: false
+  tags: go
+  
+- name: Display installed version
+  debug:
+    msg: "Successfully installed: {{ installed_version.stdout }}"
+  tags: go
