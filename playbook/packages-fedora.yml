@@ -111,11 +111,6 @@ install_packages:
   - qemu-img
   - libvirt-client
   - virt-manager
-
-  ######################################
-  # DEVEL GO
-  ######################################
-  - golang
   
   ######################################
   # DEVEL python
