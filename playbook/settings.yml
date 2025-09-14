@@ -16,7 +16,7 @@ kubectx_version: "v0.9.5"
 # renovate: datasource=github-releases depName=getsops/sops
 sops_version: "v3.10.2"
 # renovate: datasource=github-releases depName=gruntwork-io/terragrunt
-terragrunt_version: "v0.83.1"
+terragrunt_version: "v0.87.1"
 # renovate: datasource=github-releases depName=soerenschneider/sc
 sc_version: "v1.6.0"
 # renovate: datasource=github-releases depName=nats-io/natscli
