@@ -3,6 +3,13 @@
     name: dnf-automatic
   tags: auto_updates
 
+- name: Ensure /etc/dnf/automatic.conf exists
+  ansible.builtin.file:
+    path: /etc/dnf/automatic.conf
+    state: touch
+    mode: '0644'
+  tags: auto_updates
+
 - name: Auto apply updates
   ansible.builtin.lineinfile:
     path: /etc/dnf/automatic.conf
