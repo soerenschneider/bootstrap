@@ -10,7 +10,7 @@ golangci_lint_version: "v2.4.0"
 # renovate: datasource=github-releases depName=gsamokovarov/jump
 jump_version: "v0.51.0"
 # renovate: datasource=github-releases depName=int128/kubelogin
-kubectx_version: "v1.34.1"
+kubelogin_version: "v1.34.1"
 # renovate: datasource=github-releases depName=ahmetb/kubectx
 kubectx_version: "v0.9.5"
 # renovate: datasource=github-releases depName=getsops/sops
@@ -21,6 +21,11 @@ terragrunt_version: "v0.87.1"
 sc_version: "v1.6.0"
 # renovate: datasource=github-releases depName=nats-io/natscli
 nats_version: "v0.2.4"
+
+go_version: "1.25.1"
+go_install_dir: "/usr/local"
+go_binary_dir: "/usr/local/go/bin"
+go_releases_url: "https://go.dev/dl/?mode=json"
 
 user: "soeren"
 sw_dir: "/home/{{ user }}/sw"
