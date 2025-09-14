@@ -39,21 +39,18 @@
     - include_tasks: tasks/zsh.yml
       tags: always
 
-    - include_tasks: tasks/nb.yml
-      tags: always
-
-    - include_tasks: tasks/rpmfusion.yml
+    - include_tasks: tasks/fedora-packages.yaml
       when: ansible_distribution in ['Fedora', 'CentOS', 'Red Hat Enterprise Linux']
       tags: always
 
     - include_tasks: tasks/flatpak.yaml
       when: ansible_distribution in ['Fedora', 'CentOS', 'Red Hat Enterprise Linux']
       tags: always
-    
-    - include_tasks: tasks/pkcs11-firefox.yaml
-      tags: always
 
     - include_tasks: tasks/auto_updates.yml
+      tags: always
+
+    - include_tasks: tasks/go.yaml
       tags: always
     
     - include_tasks: tasks/go_tools.yaml
@@ -64,10 +61,6 @@
 
     - include_role:
         name: gocryptfs
-      tags: always
- 
-    - include_role:
-        name: needrestart
       tags: always
 
     - name: Add user to desired groups
