@@ -14,7 +14,7 @@ kubelogin_version: "v1.34.1"
 # renovate: datasource=github-releases depName=ahmetb/kubectx
 kubectx_version: "v0.9.5"
 # renovate: datasource=github-releases depName=getsops/sops
-sops_version: "v3.10.2"
+sops_version: "v3.11.0"
 # renovate: datasource=github-releases depName=gruntwork-io/terragrunt
 terragrunt_version: "v0.88.1"
 # renovate: datasource=github-releases depName=soerenschneider/sc
