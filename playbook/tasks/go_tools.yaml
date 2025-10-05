@@ -29,6 +29,16 @@
   ansible.builtin.command: "go install github.com/int128/kubelogin@{{ kubelogin_version }}"
   tags: [kubelogin, go, packages]
 
+- name: Rename kubelogin to kubectl-oidc_login if it exists
+  become: false
+  ansible.builtin.command: >
+    mv "{{ lookup('env', 'HOME') }}/go/bin/kubelogin"
+       "{{ lookup('env', 'HOME') }}/go/bin/kubectl-oidc_login"
+  args:
+    removes: "{{ lookup('env', 'HOME') }}/go/bin/kubelogin"
+  ignore_errors: true
+  tags: [kubelogin, go, packages]
+
 - name: Install kubectx
   become: false
   ansible.builtin.command: "go install github.com/ahmetb/kubectx/cmd/kubectx@{{ kubectx_version }}"
