@@ -21,8 +21,9 @@ terragrunt_version: "v0.88.1"
 sc_version: "v1.6.0"
 # renovate: datasource=github-releases depName=nats-io/natscli
 nats_version: "v0.2.4"
-
+# renovate: datasource=github-tags depName=golang/go
 go_version: "1.25.1"
+
 go_install_dir: "/usr/local"
 go_binary_dir: "/usr/local/go/bin"
 go_releases_url: "https://go.dev/dl/?mode=json"
