@@ -20,7 +20,7 @@ terragrunt_version: "v0.88.1"
 # renovate: datasource=github-releases depName=soerenschneider/sc
 sc_version: "v1.6.0"
 # renovate: datasource=github-releases depName=nats-io/natscli
-nats_version: "v0.2.4"
+nats_version: "v0.3.0"
 # renovate: datasource=github-tags depName=golang/go
 go_version: "1.25.1"
 
