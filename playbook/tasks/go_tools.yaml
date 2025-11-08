@@ -1,7 +1,7 @@
 ---
 - name: Install cosign
   become: false
-  ansible.builtin.command: "go install github.com/sigstore/cosign/v2/cmd/cosign@{{ cosign_version }}"
+  ansible.builtin.command: "go install github.com/sigstore/cosign/v3/cmd/cosign@{{ cosign_version }}"
   tags: [cosign, go, packages]
 
 - name: Install fx
