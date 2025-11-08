@@ -73,3 +73,12 @@
 
     - include_tasks: tasks/services.yml
       tags: always
+
+    - name: "Automatically sync taskwarrior tasks"
+      ansible.builtin.cron:
+        name: "taskwarrior sync"
+        user: "{{ user }}"
+        special_time: "{{ taskwarrior_sync_cron.special_time }}"
+        job: "task sync"
+        disabled: "{{ taskwarrior_sync_cron.disabled }}"
+      tags: taskwarrior

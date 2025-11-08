@@ -79,12 +79,6 @@ systemd_enabled_services:
   - fstrim.timer
   - libvirtd
 
-xdg:
-  desktop: desktop
-  downloads: dls
-  documents: docs
-  templates: templates
-  music: music
-  pictures: pictures
-  videos: videos
-  publicshare: pub
+taskwarrior_sync_cron:
+  disabled: false
+  special_time: "hourly"
