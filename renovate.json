@@ -22,8 +22,11 @@
       "matchDatasources": ["github-tags"],
       "matchDepNames": ["golang/go"],
       "extractVersion": "^go(?<version>.*)$",
-      "versioning": "semver",
-      "matchUpdateTypes": ["major", "minor", "patch"],
+      "versioning": "semver"
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchDepNames": ["golang/go"],
       "groupName": "Go binary updates",
       "automerge": true,
       "automergeType": "branch"
