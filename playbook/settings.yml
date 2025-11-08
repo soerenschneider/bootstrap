@@ -10,7 +10,7 @@ golangci_lint_version: "v2.5.0"
 # renovate: datasource=github-releases depName=gsamokovarov/jump
 jump_version: "v0.51.0"
 # renovate: datasource=github-releases depName=int128/kubelogin
-kubelogin_version: "v1.34.1"
+kubelogin_version: "v1.34.2"
 # renovate: datasource=github-releases depName=ahmetb/kubectx
 kubectx_version: "v0.9.5"
 # renovate: datasource=github-releases depName=getsops/sops
