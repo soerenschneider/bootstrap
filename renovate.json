@@ -19,6 +19,14 @@
       ]
     },
     {
+      "matchDatasources": ["github-releases"],
+      "automerge": true,
+      "automergeType": "branch",
+      "groupName": "GitHub releases automerge",
+      "matchUpdateTypes": ["minor", "patch"],
+      "ignoreTests": true
+    },
+    {
       "matchDatasources": ["github-tags"],
       "matchDepNames": ["golang/go"],
       "extractVersion": "^go(?<version>.*)$",
