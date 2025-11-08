@@ -64,7 +64,7 @@
       tags: always
 
     - name: Add user to desired groups
-      user:
+      ansible.builtin.user:
         name: "{{ user }}"
         groups: "{{ item }}"
         append: yes
