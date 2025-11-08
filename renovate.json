@@ -29,7 +29,8 @@
       "matchDepNames": ["golang/go"],
       "groupName": "Go binary updates",
       "automerge": true,
-      "automergeType": "branch"
+      "automergeType": "branch",
+      "ignoreTests": true
     }
   ],
   "regexManagers": [
