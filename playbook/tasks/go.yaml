@@ -18,7 +18,7 @@
   loop: "{{ go_releases }}"
   when: 
     - item.version is defined
-    - item.version == "go{{ go_version }}"
+    - item.version == ("go" ~ go_version)
   tags: go
   
 - name: Fail if version not found
@@ -91,7 +91,7 @@
     msg: "Go {{ go_version }} is already installed"
   when: 
     - current_go_version.rc == 0
-    - current_version == "go{{ go_version }}"
+    - current_version == ("go" ~ go_version)
   tags: go
     
 - name: Remove existing Go installation
@@ -100,7 +100,7 @@
     state: absent
   when: 
     - current_go_version.rc == 0
-    - current_version != "go{{ go_version }}"
+    - current_version != ("go" ~ go_version)
   tags: go
     
 - name: Create temporary directory
@@ -109,7 +109,7 @@
     suffix: _go_install
   register: temp_dir
   when: 
-    - current_go_version.rc != 0 or current_version != "go{{ go_version }}"
+    - current_go_version.rc != 0 or current_version != ("go" ~ go_version)
   tags: go
     
 - name: Download and install
