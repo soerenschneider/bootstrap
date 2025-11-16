@@ -149,6 +149,7 @@ install_packages:
   - vlc
   - HandBrake-gui
   - flac
+  - libavcodec-freeworld
 
   ######################################
   # HW ACCEL
