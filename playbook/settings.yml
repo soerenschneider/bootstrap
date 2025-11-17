@@ -4,9 +4,9 @@ cosign_version: "v3.0.2"
 # renovate: datasource=github-releases depName=antonmedv/fx
 fx_version: "39.2.0"
 # renovate: datasource=github-releases depName=mikefarah/yq
-yq_version: "v4.48.1"
+yq_version: "v4.48.2"
 # renovate: datasource=github-releases depName=golangci/golangci-lint
-golangci_lint_version: "v2.6.1"
+golangci_lint_version: "v2.6.2"
 # renovate: datasource=github-releases depName=gsamokovarov/jump
 jump_version: "v0.51.0"
 # renovate: datasource=github-releases depName=int128/kubelogin
