@@ -4,7 +4,7 @@ cosign_version: "v3.0.2"
 # renovate: datasource=github-releases depName=antonmedv/fx
 fx_version: "39.2.0"
 # renovate: datasource=github-releases depName=mikefarah/yq
-yq_version: "v4.49.1"
+yq_version: "v4.49.2"
 # renovate: datasource=github-releases depName=golangci/golangci-lint
 golangci_lint_version: "v2.6.2"
 # renovate: datasource=github-releases depName=gsamokovarov/jump
@@ -16,7 +16,7 @@ kubectx_version: "v0.9.5"
 # renovate: datasource=github-releases depName=getsops/sops
 sops_version: "v3.11.0"
 # renovate: datasource=github-releases depName=gruntwork-io/terragrunt
-terragrunt_version: "v0.93.10"
+terragrunt_version: "v0.93.11"
 # renovate: datasource=github-releases depName=soerenschneider/sc
 sc_version: "v1.6.0"
 # renovate: datasource=github-releases depName=nats-io/natscli
