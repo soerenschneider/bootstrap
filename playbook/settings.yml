@@ -1,6 +1,6 @@
 ---
 # renovate: datasource=github-releases depName=sigstore/cosign
-cosign_version: "v3.0.2"
+cosign_version: "v3.0.3"
 # renovate: datasource=github-releases depName=antonmedv/fx
 fx_version: "39.2.0"
 # renovate: datasource=github-releases depName=mikefarah/yq
