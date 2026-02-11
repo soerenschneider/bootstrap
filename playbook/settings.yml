@@ -22,7 +22,7 @@ sc_version: "v1.6.0"
 # renovate: datasource=github-releases depName=nats-io/natscli
 nats_version: "v0.3.1"
 # renovate: datasource=github-tags depName=golang/go
-go_version: "1.25.7"
+go_version: "1.26.0"
 
 go_install_dir: "/usr/local"
 go_binary_dir: "/usr/local/go/bin"
