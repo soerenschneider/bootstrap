@@ -422,8 +422,8 @@ ensureGithubSshKey() {
         -d "{\"title\":\"${SSH_KEY_TITLE}\",\"key\":\"${pub_key}\"}") \
         || die "Failed to call GitHub API."
 
-    http_code="$(tail -n1 <<< "${response}")"
-    body="$(head -n -1 <<< "${response}")"
+    http_code="${response##*$'\n'}"
+    body="${response%$'\n'*}"
 
     if [[ "${http_code}" == "201" ]]; then
         log "SSH key registered on GitHub successfully."
