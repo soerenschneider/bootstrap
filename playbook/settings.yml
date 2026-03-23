@@ -6,13 +6,13 @@ fx_version: "39.2.0"
 # renovate: datasource=github-releases depName=mikefarah/yq
 yq_version: "v4.52.4"
 # renovate: datasource=github-releases depName=golangci/golangci-lint
-golangci_lint_version: "v2.11.3"
+golangci_lint_version: "v2.11.4"
 # renovate: datasource=github-releases depName=gsamokovarov/jump
 jump_version: "v0.67.0"
 # renovate: datasource=github-releases depName=int128/kubelogin
 kubelogin_version: "v1.36.0"
 # renovate: datasource=github-releases depName=ahmetb/kubectx
-kubectx_version: "v0.9.5"
+kubectx_version: "v0.10.0"
 # renovate: datasource=github-releases depName=getsops/sops
 sops_version: "v3.12.2"
 # renovate: datasource=github-releases depName=gruntwork-io/terragrunt
