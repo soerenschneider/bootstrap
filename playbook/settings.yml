@@ -1,6 +1,6 @@
 ---
 # renovate: datasource=github-releases depName=sigstore/cosign
-cosign_version: "v3.1.1"
+cosign_version: "v3.1.2"
 # renovate: datasource=github-releases depName=antonmedv/fx
 fx_version: "39.2.0"
 # renovate: datasource=github-releases depName=mikefarah/yq
@@ -10,7 +10,7 @@ golangci_lint_version: "v2.12.2"
 # renovate: datasource=github-releases depName=gsamokovarov/jump
 jump_version: "v0.67.0"
 # renovate: datasource=github-releases depName=int128/kubelogin
-kubelogin_version: "v1.36.2"
+kubelogin_version: "v1.36.3"
 # renovate: datasource=github-releases depName=ahmetb/kubectx
 kubectx_version: "v0.11.0"
 # renovate: datasource=github-releases depName=getsops/sops
