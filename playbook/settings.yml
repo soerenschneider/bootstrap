@@ -1,6 +1,6 @@
 ---
 # renovate: datasource=github-releases depName=sigstore/cosign
-cosign_version: "v3.1.4"
+cosign_version: "v3.1.5"
 # renovate: datasource=github-releases depName=antonmedv/fx
 fx_version: "39.2.0"
 # renovate: datasource=github-releases depName=mikefarah/yq
@@ -20,7 +20,7 @@ terragrunt_version: "v0.99.5"
 # renovate: datasource=github-releases depName=soerenschneider/sc
 sc_version: "v1.13.0"
 # renovate: datasource=github-releases depName=nats-io/natscli
-nats_version: "v0.5.1"
+nats_version: "v0.5.2"
 # renovate: datasource=github-tags depName=golang/go
 go_version: "1.27.4"
 
